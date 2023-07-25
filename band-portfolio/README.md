@@ -39,3 +39,4 @@ You can preview the production build with `npm run preview`.
 
 //nvm use 16.15.0
 // to expose server: npm run dev -- --host
+// disable firewall on private network and set the wifi as private
