@@ -5,16 +5,65 @@
 	class:[$$restProps.class]
 	}
 
-    export let title = "";
-    export let description = "";
+    export let title = " ";
+    export let description = " ";
+    export let expanded = false
 
     
 
 
 </script>
+<div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16 " >
+    <Card class=" {$$props.class} flex flex-col justify-end justify-items-end">
+        <img src="src/images/profilepic.jpg" alt="Profile Pic" class="-mt-16 w-32 h-32 mx-auto rounded-2xl shadow-xl" />
+        <h5 class="mt-8 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+        <p class="font-normal text-center text-gray-700 dark:text-gray-400">{description}</p>
+    </Card>
+</div>
 
-<Card class="{$$props.class}">
-    <img src="src/images/profilepic.jpg" alt="Profile Pic" class="-mt-16 w-32 h-32 mx-auto rounded-2xl shadow-xl" />
-    <h5 class="mt-8 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
-    <p class="font-normal text-center text-gray-700 dark:text-gray-400">{description}</p>
-</Card>
+<style>
+    .expand {
+        animation: expand-animation-small 1s forwards;
+    }
+
+    .shrink{
+        animation: shrink-animation-small 1s forwards;
+    }
+    @keyframes expand-animation-small {
+    0% {
+        
+        height: 200px 
+    }
+    100% {
+        
+        height: 500px;
+    }
+    }
+    @keyframes shrink-animation-small {
+    0% {
+        
+        height: 500px;
+    }
+    100% {
+        
+        height: 200px;
+    }
+    }
+
+
+
+    @keyframes expand-animation-large {
+    0% {
+        height: 200px 
+    }
+    100% {
+        height: 500px; /* Double the height of the box */
+    }
+    }
+
+    @media (min-width: 640px) {
+        .expand {
+            animation: expand-animation-large 1s forwards;
+        }
+    }
+</style>

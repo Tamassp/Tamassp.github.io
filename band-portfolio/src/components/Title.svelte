@@ -1,8 +1,8 @@
 <script>
-    
+
 </script>
 
-<h1 class="text-2xl md:text-4xl {$$props.class} ">
+<h1 class="text-4xl md:text-7xl {$$props.class} ">
     <slot/>
 </h1>
 

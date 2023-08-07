@@ -18,7 +18,7 @@
         font-family: 'Homenaje';
     }
     :global(body) {
-        background-color: rgb(0, 0, 0);
+        background-color: rgba(104, 96, 96, 0.95);
         color: white;
         display: flex;
         justify-content: center;
