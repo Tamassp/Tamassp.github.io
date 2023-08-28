@@ -13,6 +13,8 @@
 	import Description from "../../components/Description.svelte";
 	import Title from "../../components/Title.svelte";
 	import Divider from "../../components/Divider.svelte";
+	import Popup from "../../components/Popup.svelte";
+    import CV from "../../components/CV.svelte";
    
     
     export let data: PageData;
@@ -20,6 +22,8 @@
     let visible = false;
     let isProfileExpanded = false;
     let section1Animation = false;
+
+    let popupIsOpen = false
 
     // let scrollPercentage = --scroll 
 
@@ -57,18 +61,29 @@
 
     console.log(section1Animation);
 
+    function openCV() {
+        popupIsOpen = true
+        console.log("CV opened");
+    }
 
+    function closeCV() {
+        popupIsOpen = false
+        console.log("CV closed");
+    }
     
     
 </script>
+
+<Popup show={popupIsOpen} on:close={closeCV}>
+    <CV/>
+</Popup>
 <div  class="h-screen">
     <div class="absolute m-auto left-0 right-0 top-0 bottom-0 w-fit h-fit">
-        <section class="grid md:gap-16 md:grid-cols-2 lg:gap-32 min-h-full">
+        <section class="full-width-section grid md:gap-16 md:grid-cols-2 lg:gap-32 min-h-full mt-[200px]">
             {#if visible}
             <div class="h-64 flex justify-center items-center">
                 <Title><TypeWriter {visible} text="Welcome!"/></Title>
             </div>
-            {:else}
             
             {/if}
             <!-- {#if isProfileExpanded}
@@ -107,7 +122,7 @@
 
     </div> -->
     {#if visible}
-    <div class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} p-4 pr-6 mr-2 mt-[2vh] borderImage">
+    <div class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} p-4 pr-6 mr-2 mt-[2vh] border-b border-r flex flex-col items-center justify-center">
         <SubHeader class="">Software Engineer specialized in React/React Native</SubHeader>
         <Divider size={24}/>
         <Description>
@@ -115,17 +130,16 @@
             able to design, implement and maintain mobile and web applications
             using component based development.
         </Description>
+        <Divider size={96}/>
+        <button on:click={openCV} class="border pl-4 pr-4 pt-2 pb-2" >Open CV</button>
     </div>
     {/if}
 </section>
 <div class="bg-red-500 h-[0vh]" />
 <!-- <div class="test"></div> -->
-    <section class="min-h-screen full-screen-section">
+    <section class="min-h-screen full-screen-section bg-green-300 flex flex-col justify-center">
         <div id="#section1" class='{section1Animation ? 'section-1' : ''}'></div>
-        
         <div class='section-1-animation'></div>
-
-
         <div use:viewport
             on:enterViewport={() => {
                 console.log('enter')
@@ -154,25 +168,50 @@
                 }}
             >
         </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="80vh" viewBox="0 0 307 916" fill="none">
+            <path d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" stroke="black" stroke-width="3.77953"/>
+        </svg>
     </section>
     
-    <!-- <section class="full-screen-section min-h-screen p-1">
-        <div class="flex flex-wrap w-screen">
+    <section class="full-screen-section p-1 flex flex-col justify-center">
+        <div class="flex flex-wrap">
             <SubHeader class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline bg-slate-500 text-cyan-300">I started learning programming in</SubHeader> 
         <div>
-        <div class="flex flex-wrap w-screen">
+        <div class="flex flex-wrap">
             <Title class="ml-[15%] sm:ml-[35%] md:ml-[50%] inline bg-slate-500 text-cyan-300">high school</Title>
         </div>
         <div class="grid md:gap-16 md:grid-cols-2">
-            <img src="src/images/gimi.png" alt="gimi" class="h-auto" />
-            <p class="flex">We were introduced to C++ first, where I could learn the basics
+            <img src="src/images/gimi.png" alt="gimi" class="h-auto md:w-[45vw]" />
+            <Description class="flex">We were introduced to C++ first, where I could learn the basics
                 of programming and I could practice creating algorithms. Througout my
                 studies I've participated in extra courses in software developement
                 where we were creating apps in HTML/CSS, Java and Android studio In the last
                 year we were working with C#
-            </p>
+            </Description>
         </div>
-    </section> -->
+    </section>
+     <section class="half-screen-section bg-green-300 flex flex-col justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="80vh" viewBox="0 0 307 916" fill="none">
+            <path d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" stroke="black" stroke-width="3.77953"/>
+        </svg>
+     </section>
+    <section class="full-screen-section p-1 flex flex-col justify-center">
+        <div class="flex flex-wrap">
+            <SubHeader class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]">I started learning programming in</SubHeader> 
+        <div>
+        <div class="flex flex-wrap">
+            <Title class="ml-[15%] sm:ml-[35%] md:ml-[50%] inline drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]">high school</Title>
+        </div>
+        <div class="grid md:gap-16 md:grid-cols-2">
+            <img src="src/images/gimi.png" alt="gimi" class="h-auto md:w-[45vw]" />
+            <Description class="flex drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]">We were introduced to C++ first, where I could learn the basics
+                of programming and I could practice creating algorithms. Througout my
+                studies I've participated in extra courses in software developement
+                where we were creating apps in HTML/CSS, Java and Android studio In the last
+                year we were working with C#
+            </Description>
+        </div>
+    </section>
     <!-- <section class="min-h-screen">
         
         <svg xmlns="http://www.w3.org/2000/svg" width="307" height="916" viewBox="0 0 307 916" fill="none">
@@ -194,9 +233,16 @@
         background-color: blueviolet;
         /* display: inline; */
     }
+    .half-screen-section {
+        height: 50vh;
+        width: 100%;
+        max-width: 1536px;
+        /* background: blue; */
+        position: relative;
+    }
     .full-screen-section {
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         max-width: 1536px;
         /* background: blue; */
         position: relative;
@@ -316,6 +362,10 @@
         height: 50vh;
         width: 45vw;
     }
+}
+
+svg {
+  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
 
 
