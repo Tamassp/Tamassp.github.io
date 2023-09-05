@@ -18,8 +18,12 @@
         font-family: 'Homenaje';
     }
     :global(body) {
-        background-color: rgba(87, 80, 80, 0.95);
-        color: white;
+        /*DARK THEME */
+        /* background-color: rgba(5, 19, 24, 0.95);
+        color: rgba(243 ,247 ,248 ,0.95); */
+        /* LIGHT THEME */
+        background-color: rgba(255, 255, 255, 1);
+        color: rgba(5, 19, 24, 0.95);
         display: flex;
         justify-content: center;
         

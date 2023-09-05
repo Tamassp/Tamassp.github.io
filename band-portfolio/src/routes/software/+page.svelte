@@ -4,6 +4,7 @@
     import { fade, slide } from "svelte/transition";
     // import IntersectionObserver from '../../utils/IntersectionObserver.svelte';
     import viewport from './useViewportAction';
+    import { scrollPosition } from "../../actions/scrollPosition.js";
     import Header from "../../components/Header.svelte";
     import "../../app.css";
     import type { PageData } from './$types';
@@ -52,7 +53,12 @@
 
     setTimeout(() => {
     visible = true; // After some delay, set showContent to true to show the content and trigger the transition
-  }, 1000);
+    
+    //GETTING THE LENGHT OF THE SVGS
+    // var myPath = document.getElementById("#arrow1");
+    // var length = myPath.getTotalLength();
+    // console.log("LENGHT" + length);
+    }, 1000);
 
     function onProfileCardClick() {
         isProfileExpanded = true
@@ -71,15 +77,71 @@
         console.log("CV closed");
     }
     
+
+    //ONLOAD
+    let waiting = 0
     
+    const notifyLoaded = () => {
+        console.log('loaded!')
+    }
+    
+    // const onload = el => {
+    //     waiting++
+    //     el.addEventListener('load', () => {
+    //         waiting--
+    //         if (waiting === 0) {
+    //             notifyLoaded()
+    //         }
+    //     })
+    // }
+    
+    //GETTING THE LENGHT OF THE SVGS
+    // var myPath = document.getElementById("#arrow1");
+    // var length = myPath.getTotalLength();
+    // console.log(length);
+
+    //SCROLL VALUE
+    // let scrollValue = 0;
+
+    // window.addEventListener('scroll', () => {
+    //     scrollValue = window.scrollY;
+    // });
+
+    function dashedLineScrolling() {
+        function handleScroll() {
+        let scrollValue = window.scrollY / 500;
+        console.log(scrollValue);
+        
+        const dashedLine = document.getElementById("dashline1");
+        //const dashedLineLength = dashedLine.getTotalLength();
+        // console.log(dashedLineLength);
+        if(scrollValue < 3) {
+            dashedLine.style.strokeDashoffset = scrollValue.toString();
+        }
+        
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return {
+            destroy() {
+            window.removeEventListener('scroll', handleScroll);
+            },
+        };
+    }
+
+
 </script>
 
 <Popup show={popupIsOpen} on:close={closeCV}>
     <CV/>
 </Popup>
-<div  class="h-screen">
+<div  class="h-screen /*bg-secondary">
+    <!-- SCROLL POSITION TEST -->
+    <!-- <div class="h-4 w-4 bg-primary" use:scrollPosition > 
+    </div>-->
     <div class="absolute m-auto left-0 right-0 top-0 bottom-0 w-fit h-fit">
-        <section class="full-width-section grid md:gap-16 md:grid-cols-2 lg:gap-32 min-h-full mt-[200px]">
+        <section class="full-width-section grid md:gap-16 md:grid-cols-2 lg:gap-32 min-h-full ">
             {#if visible}
             <div class="h-64 flex justify-center items-center">
                 <Title><TypeWriter {visible} text="Welcome!"/></Title>
@@ -92,25 +154,27 @@
             </div>
             {/if} -->
             {#if visible}
-            <div class="h-[600px]">
-            <span transition:fade={{delay: 1000, duration: 1000}}>
-            <div class="flex flex-col items-center"
-                transition:slide={{delay: 1000, duration: 1500}}>
-            <ProfileCard 
-                expanded={isProfileExpanded}
-                title="Tamas Peter" 
-                description="Software Engineer"
-                on:click={onProfileCardClick}
-                class="w-64"/>
-            </div>
-            </span>
-            </div>
+            
+                <!-- <div class="h-[600px]"> -->
+                <span transition:fade={{delay: 600, duration: 300}}>
+                <div class="flex flex-col items-center justify-end">
+                    <!-- transition:slide={{delay: 1000, duration: 1500}} -->
+                        <ProfileCard 
+                            title="Tamas Peter" 
+                            description="Software Engineer"
+                            on:click={onProfileCardClick}
+                            class="w-64"
+                            />
+                     </div>
+                </span>
+                <!-- </div> -->
+           
             {/if} 
         </section>
     </div>
 </div>
 
-<section class="full-width-section  -mt-[0vh] ">
+<section class="full-width-section  -mt-[0vh] /*bg-accent">
     <!-- <div class="svg-wrapper">
         <svg height="50vh" width="90vw" xmlns="http://www.w3.org/2000/svg">
             <rect class="shape" height="50vh" width="90vw" />
@@ -121,8 +185,9 @@
     <!-- <div class="ml-[45vw] w-1 h-1 border-r border-b-2 {isProfileExpanded ? 'line-in' : 'line-out'}">
 
     </div> -->
+    
     {#if visible}
-    <div class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} p-4 pr-6 mr-2 mt-[2vh] border-b border-r flex flex-col items-center justify-center">
+    <div class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} p-4 pr-6 mr-2 pt-[128px] mt-[164px] md:mt-0 /*border-b /*border-r flex flex-col items-center justify-center">
         <SubHeader class="">Software Engineer specialized in React/React Native</SubHeader>
         <Divider size={24}/>
         <Description>
@@ -131,15 +196,6 @@
             using component based development.
         </Description>
         <Divider size={96}/>
-        <button on:click={openCV} class="border pl-4 pr-4 pt-2 pb-2" >Open CV</button>
-    </div>
-    {/if}
-</section>
-<div class="bg-red-500 h-[0vh]" />
-<!-- <div class="test"></div> -->
-    <section class="min-h-screen full-screen-section bg-green-300 flex flex-col justify-center">
-        <div id="#section1" class='{section1Animation ? 'section-1' : ''}'></div>
-        <div class='section-1-animation'></div>
         <div use:viewport
             on:enterViewport={() => {
                 console.log('enter')
@@ -154,7 +210,6 @@
             
             >
         </div>
-        <div class="h-0 bg-slate-500"></div>
         <div use:viewport
             on:enterViewport={() => {
                 console.log('enter')
@@ -168,9 +223,45 @@
                 }}
             >
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="80vh" viewBox="0 0 307 916" fill="none">
-            <path d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" stroke="black" stroke-width="3.77953"/>
+        <button on:click={openCV} class="border pl-4 pr-4 pt-2 pb-2" >Open CV</button>
+    </div>
+    {/if}
+</section>
+<div class="bg-red-500 h-[0vh]" />
+<!-- <div class="test"></div> -->
+    <section class="min-h-screen full-screen-section bg-green-300 flex flex-col justify-center">
+        <div id="#section1" class='{section1Animation ? 'section-1' : ''}'></div>
+        <div class='section-1-animation'></div>
+        <div use:viewport 
+            on:enterViewport={() => {
+                console.log('enter DASHEDLINE')
+                dashedLineScrolling()
+            }}
+            on:exitViewport={() => {
+                console.log('exit DASHEDLINE')
+                
+            }}
+            >
+        <svg class="mt-[128px] ml-[20vw]" width="60vw" height="h-auto" viewBox="0 0 690 408" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 Q50,200 345,204 T690,408" 
+                stroke="white" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+            </path>
+            <path  d="M0,0 Q50,200 345,204 T690,408" 
+            stroke="#C0D1EB" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="20 20">
+            </path>
+            <path id="dashline1" d="M690,408Q640,208 345,204Q50,200 0,0" stroke="white" stroke-width="5" stroke-linejoin="round" 
+            stroke-linecap="round" pathLength="1" stroke-dashoffset="0px" stroke-dasharray="0.2941537710336538px 1px">
+            </path>
         </svg>
+        <!-- <svg use:onload class="arrowSVG" xmlns="http://www.w3.org/2000/svg" width="auto" height="60vh" viewBox="0 0 307 916" fill="none">
+            <path id="arrow1" d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 
+            311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 
+            632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 
+            866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 
+            876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" 
+            stroke="white" 
+            stroke-width="3.77953"/>
+        </svg> -->
     </section>
     
     <section class="full-screen-section p-1 flex flex-col justify-center">
@@ -192,7 +283,7 @@
     </section>
      <section class="half-screen-section bg-green-300 flex flex-col justify-center">
         <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="80vh" viewBox="0 0 307 916" fill="none">
-            <path d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" stroke="black" stroke-width="3.77953"/>
+            <path d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" stroke="white" stroke-width="3.77953"/>
         </svg>
      </section>
     <section class="full-screen-section p-1 flex flex-col justify-center">
@@ -365,8 +456,47 @@
 }
 
 svg {
-  filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+  /* filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)); */
 }
 
+#shadowPath {
+  filter: url(#dropshadow);
+}
 
+.arrowSVG {
+    stroke-dasharray: 1500;
+    stroke-dashoffset: 0;
+}
+
+@keyframes arrowAnim {
+    0% {
+        stroke-dashoffset: 1500;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.arrowSVG:hover {
+    animation: arrowAnim 1s forwards; 
+    animation: dashline1Anim 1s forwards; 
+}
+
+#dashline1 {
+    stroke-dasharray: 1px 1px;
+    stroke-dashoffset: 0;
+}
+
+@keyframes dashline1Anim {
+    0% {
+        stroke-dasharray: 1px 1px;
+    }
+    100% {
+        stroke-dasharray: 0px 1px;
+    }
+}
+
+#dashline1:hover {
+    animation: dashline1Anim 1s forwards; 
+}
 </style>

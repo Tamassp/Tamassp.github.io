@@ -27,17 +27,21 @@
   }
 
 </script>
-//GRID
+
 {#if show}
 {#if preventScrolling}
     <style>
+      html,
       body {
         overflow: hidden;
+        position: relative;
+        height: 100%;
       }
     </style>
   {/if}
   <div class="fixed inset-0 flex items-center justify-center z-40 //blur-sm backdrop-blur-md">
-    <div class="relative bg-gray-800 text-white  shadow-lg //border-[1px] border-t-4 h-full md:h-auto max-h-[90vh] min-w-[256px] m-2 mt-8 z-50">
+    <div class="relative bg-background opacity-90 text-white shadow-lg //border-[1px] border-t-4 
+      h-full md:h-auto max-h-[90vh] min-w-[256px] m-2 mt-8 z-50 ">
       <Divider />
       <div class="h-[90%] overflow-y-auto p-6">
       <slot/>

@@ -1,5 +1,6 @@
 <script>
 	import Card from "./Card.svelte";
+    import { scrollPosition } from "../actions/scrollPosition";
 
     let cardProps = {
 	class:[$$restProps.class]
@@ -13,12 +14,17 @@
 
 
 </script>
-<div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16 " >
-    <Card class=" {$$props.class} flex flex-col justify-end justify-items-end md:p-16">
-        <img src="src/images/profilepic.jpg" alt="Profile Pic" class="-mt-16 w-32 h-32 mx-auto rounded-2xl shadow-xl" />
-        <h5 class="mt-8 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+<div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16" >
+    <div use:scrollPosition >
+    <Card class=" {$$props.class} flex flex-col justify-end justify-items-end md:p-16 md:pt-0 ">
+        <img src="src/images/profilepic.jpg" alt="Profile Pic" class="-mt-16 h-32 w-32 mx-auto shadow-xl border z-10" />
+        <div class="relative">
+            <div class="absolute -top-28 left-4 h-32 w-32 border-2 z-0" />
+        </div>
+        <h5 class="mt-8 text-center text-2xl font-bold tracking-tight text-background">{title}</h5>
         <p class="font-normal text-center text-gray-700 dark:text-gray-400">{description}</p>
     </Card>
+    </div>
 </div>
 
 <style>
