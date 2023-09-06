@@ -26,7 +26,7 @@
         color: rgba(5, 19, 24, 0.95);
         display: flex;
         justify-content: center;
-        
+        padding: 8px;
     }
 
 </style>
