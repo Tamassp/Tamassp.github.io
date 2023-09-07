@@ -1,6 +1,6 @@
 <script>
 	export let visible = false;
-    export let text = " ";
+	export let text = ' ';
 
 	function typewriter(node, { speed = 2 }) {
 		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;

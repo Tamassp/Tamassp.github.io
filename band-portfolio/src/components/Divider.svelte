@@ -1,6 +1,5 @@
 <script>
-    export let size = 48;
-
+	export let size = 48;
 </script>
 
-<div style="height: {size}px;" class=" {$$props.class}"></div>
+<div style="height: {size}px;" class=" {$$props.class}" />
