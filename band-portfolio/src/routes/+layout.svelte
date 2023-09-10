@@ -1,10 +1,14 @@
 <script lang="ts">
 	// import "../fonts.css"
-	import '../app.css';
-	import type { LayoutData } from './$types';
+	import '../app.css'
+	import type { LayoutData } from './$types'
 
-	export let data: LayoutData;
+	export let data: LayoutData
 </script>
+
+<svelte:head>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet" />
+</svelte:head>
 
 <!-- <h1 class="text-3xl font-bold underline">
   Hello world!
@@ -13,8 +17,9 @@
 <slot />
 
 <style>
-	* {
-		font-family: 'Homenaje';
+	:global(html) {
+		font-family: 'Fira Sans', sans-serif;
+		width: 100%;
 	}
 	:global(body) {
 		/*DARK THEME */
@@ -26,5 +31,6 @@
 		display: flex;
 		justify-content: center;
 		padding: 8px;
+		width: 100%;
 	}
 </style>

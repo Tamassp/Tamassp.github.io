@@ -1,14 +1,14 @@
 <script>
-	import Card from './Card.svelte';
-	import { scrollPosition } from '../actions/scrollPosition';
+	import Card from './Card.svelte'
+	import { scrollPosition } from '../actions/scrollPosition'
 
 	let cardProps = {
 		class: [$$restProps.class]
-	};
+	}
 
-	export let title = ' ';
-	export let description = ' ';
-	export let expanded = false;
+	export let title = ' '
+	export let description = ' '
+	export let expanded = false
 </script>
 
 <div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16">
@@ -17,12 +17,12 @@
 			<img
 				src="src/images/profilepic.jpg"
 				alt="Profile Pic"
-				class="-mt-16 h-32 w-32 mx-auto shadow-xl border z-10"
+				class="z-10 w-32 h-32 mx-auto -mt-16 border shadow-xl"
 			/>
 			<div class="relative">
-				<div class="absolute -top-28 left-4 h-32 w-32 border-2 z-0" />
+				<div class="absolute z-0 w-32 h-32 border-2 -top-28 left-4" />
 			</div>
-			<h5 class="mt-8 text-center text-2xl font-bold tracking-tight text-background">{title}</h5>
+			<h5 class="mt-8 text-2xl font-bold tracking-tight text-center text-background">{title}</h5>
 			<p class="font-normal text-center text-gray-700 dark:text-gray-400">{description}</p>
 		</Card>
 	</div>

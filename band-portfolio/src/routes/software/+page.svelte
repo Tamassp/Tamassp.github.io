@@ -1,41 +1,41 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { setScrollVar, removeScrollVar } from '../../utils/helpers.js';
-	import { draw, fade, slide } from 'svelte/transition';
+	import { onMount } from 'svelte'
+	import { setScrollVar, removeScrollVar } from '../../utils/helpers.js'
+	import { draw, fade, slide } from 'svelte/transition'
 	// import IntersectionObserver from '../../utils/IntersectionObserver.svelte';
-	import viewport from './useViewportAction';
-	import { scrollPosition } from '../../actions/scrollPosition.js';
-	import { windowResize } from '../../actions/windowResize.js';
-	import Header from '../../components/Header.svelte';
-	import SubTitle from '../../components/SubTitle.svelte';
-	import '../../app.css';
-	import type { PageData } from './$types';
-	import ProfileCard from '../../components/ProfileCard.svelte';
-	import TypeWriter from '../../components/TypeWriter.svelte';
-	import SubHeader from '../../components/SubHeader.svelte';
-	import Description from '../../components/Description.svelte';
-	import Title from '../../components/Title.svelte';
-	import Divider from '../../components/Divider.svelte';
-	import Popup from '../../components/Popup.svelte';
-	import CV from '../../components/CV.svelte';
-	import { bind } from 'svelte/internal';
+	import viewport from './useViewportAction'
+	import { scrollPosition } from '../../actions/scrollPosition.js'
+	import { windowResize } from '../../actions/windowResize.js'
+	import Header from '../../components/Header.svelte'
+	import SubTitle from '../../components/SubTitle.svelte'
+	import '../../app.css'
+	import type { PageData } from './$types'
+	import ProfileCard from '../../components/ProfileCard.svelte'
+	import TypeWriter from '../../components/TypeWriter.svelte'
+	import SubHeader from '../../components/SubHeader.svelte'
+	import Description from '../../components/Description.svelte'
+	import Title from '../../components/Title.svelte'
+	import Divider from '../../components/Divider.svelte'
+	import Popup from '../../components/Popup.svelte'
+	import CV from '../../components/CV.svelte'
+	import { bind } from 'svelte/internal'
 
-	export let data: PageData;
+	export let data: PageData
 
 	// window width and height
-	let innerWidth = 0;
-	let innerHeight = 0;
+	let innerWidth = 0
+	let innerHeight = 0
 
-	let visible = false;
-	let isProfileExpanded = false;
-	let section1Animation = false;
+	let visible = false
+	let isProfileExpanded = false
+	let section1Animation = false
 
-	let popupIsOpen = false;
+	let popupIsOpen = false
 
 	// let scrollPercentage = --scroll
 
 	onMount(() => {
-		setScrollVar();
+		setScrollVar()
 		const observer = new IntersectionObserver((entries) => {
 			// Loop over the entries
 			entries.forEach((entry) => {
@@ -43,51 +43,51 @@
 				if (entry.isIntersecting) {
 					// Add the animation class
 					// entry.target.classList.add('section-1-animation');
-					section1Animation = true;
+					section1Animation = true
 				}
-			});
-		});
+			})
+		})
 
-		observer.observe(document.querySelector('section-1'));
+		observer.observe(document.querySelector('section-1'))
 		return () => {
 			//cleanup
-			removeScrollVar();
-		};
-	});
+			removeScrollVar()
+		}
+	})
 	//setScrollVar()
 
 	setTimeout(() => {
-		visible = true; // After some delay, set showContent to true to show the content and trigger the transition
+		visible = true // After some delay, set showContent to true to show the content and trigger the transition
 
 		//GETTING THE LENGHT OF THE SVGS
 		// var myPath = document.getElementById("#arrow1");
 		// var length = myPath.getTotalLength();
 		// console.log("LENGHT" + length);
-	}, 1000);
+	}, 1000)
 
 	function onProfileCardClick() {
-		isProfileExpanded = true;
-		console.log('Profile Card Clicked');
+		isProfileExpanded = true
+		console.log('Profile Card Clicked')
 	}
 
-	console.log(section1Animation);
+	console.log(section1Animation)
 
 	function openCV() {
-		popupIsOpen = true;
-		console.log('CV opened');
+		popupIsOpen = true
+		console.log('CV opened')
 	}
 
 	function closeCV() {
-		popupIsOpen = false;
-		console.log('CV closed');
+		popupIsOpen = false
+		console.log('CV closed')
 	}
 
 	//ONLOAD
-	let waiting = 0;
+	let waiting = 0
 
 	const notifyLoaded = () => {
-		console.log('loaded!');
-	};
+		console.log('loaded!')
+	}
 
 	// const onload = el => {
 	//     waiting++
@@ -112,68 +112,72 @@
 	// });
 
 	function dashedLineScrolling() {
-		const offset = window.scrollY;
-		const vh = window.innerHeight;
+		const offset = window.scrollY
+		const vh = window.innerHeight
 		function handleScroll() {
-			let scrollValue = (window.scrollY - offset) / vh;
+			let scrollValue = (window.scrollY - offset) / vh
 			//let scrollValue = 0.5;
-			console.log(scrollValue);
-			console.log(offset);
+			console.log(scrollValue)
+			console.log(offset)
 
-			const dashedLine = document.getElementById('dashline1');
+			const dashedLine = document.getElementById('dashline1')
 			//const dashedLineLength = dashedLine.getTotalLength();
 			// console.log(dashedLineLength);
 			if (scrollValue < 1) {
-				dashedLine.style.strokeDashoffset = scrollValue.toString();
+				dashedLine.style.strokeDashoffset = scrollValue.toString()
 			}
 		}
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll)
 
 		return {
 			destroy() {
-				window.removeEventListener('scroll', handleScroll);
+				window.removeEventListener('scroll', handleScroll)
 			}
-		};
+		}
 	}
 	function dashedLineScrolling2() {
-		const offset = window.scrollY;
-		const vh = window.innerHeight;
+		const offset = window.scrollY
+		const vh = window.innerHeight
 		function handleScroll() {
-			let scrollValue = (window.scrollY - offset) / vh;
+			let scrollValue = (window.scrollY - offset) / vh
 			//let scrollValue = 0.5;
-			console.log('SECOND' + scrollValue);
-			console.log(offset);
+			console.log('SECOND' + scrollValue)
+			console.log(offset)
 
-			const dashedLine = document.getElementById('dashline2');
+			const dashedLine = document.getElementById('dashline2')
 			//const dashedLineLength = dashedLine.getTotalLength();
 			// console.log(dashedLineLength);
 			if (scrollValue < 1 && scrollValue > 0) {
 				//inverting the scrollValue
-				scrollValue = -scrollValue;
-				dashedLine.style.strokeDashoffset = scrollValue.toString();
+				scrollValue = -scrollValue
+				dashedLine.style.strokeDashoffset = scrollValue.toString()
 			}
 		}
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll)
 
 		return {
 			destroy() {
-				window.removeEventListener('scroll', handleScroll);
+				window.removeEventListener('scroll', handleScroll)
 			}
-		};
+		}
 	}
 
-	let travelSignVisible = false;
+	let travelSignVisible = false
 
 	function setTravelSign(a: boolean) {
-		travelSignVisible = a;
+		travelSignVisible = a
 	}
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<div id="pageWrapper" class="p-4 md:p-8">
+<div
+	id="pageWrapper"
+	class="p-4 md:p-8 w-full
+ /*sm:bg-accent /*md:bg-[#eeafaf] /*lg:bg-secondary /*xl:bg-primary"
+>
 	<Popup show={popupIsOpen} on:close={closeCV}>
 		<CV />
 	</Popup>
@@ -226,9 +230,9 @@
 
 		{#if visible}
 			<div
-				class=" {isProfileExpanded
-					? 'animate-in'
-					: 'animate-out'} p-4 pr-6 mr-2 pt-[128px] mt-[164px] md:mt-0 /*border-b /*border-r flex flex-col items-center justify-center"
+				class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} 
+					p-4 pr-6 mr-2 pt-[128px] mt-[128px] md:mt-0 /*border-b /*border-r 
+					flex flex-col items-center justify-center"
 			>
 				<SubHeader class="">Software Engineer specialized in React/React Native</SubHeader>
 				<Divider size={24} />
@@ -236,33 +240,33 @@
 					As a Front-end focused software engineer, I will be able to design, implement and maintain
 					mobile and web applications using component based development.
 				</Description>
-				<Divider size={96} />
 				<div
 					use:viewport
 					on:enterViewport={() => {
-						console.log('enter');
+						console.log('enter')
 
 						//isProfileExpanded = true
 						// section1Animation = true
 					}}
 					on:exitViewport={() => {
-						console.log('exit');
-						isProfileExpanded = false;
+						console.log('exit')
+						isProfileExpanded = false
 					}}
 				/>
 				<div
 					use:viewport
 					on:enterViewport={() => {
-						console.log('enter');
+						console.log('enter')
 
-						isProfileExpanded = true;
+						isProfileExpanded = true
 						// section1Animation = true
 					}}
 					on:exitViewport={() => {
-						console.log('exit');
+						console.log('exit')
 						//isProfileExpanded = false
 					}}
 				/>
+				<Divider size={96} />
 				<button on:click={openCV} class="pt-2 pb-2 pl-4 pr-4 border">Open CV</button>
 			</div>
 		{/if}
@@ -294,19 +298,19 @@
 					stroke="black"
 					stroke-width="0.5"
 				/>
-				<text x="7" y="24" font-family="Verdana" font-size="10" fill="black">My Story</text>
+				<text x="7" y="24" font-family="/*Transport" font-size="10" fill="black">My Story</text>
 			</svg>
 			<!-- </div> -->
 		{/if}
 		<div
 			use:viewport
 			on:enterViewport={() => {
-				console.log('enter DASHEDLINE');
-				dashedLineScrolling();
-				setTravelSign(true);
+				console.log('enter DASHEDLINE')
+				dashedLineScrolling()
+				setTravelSign(true)
 			}}
 			on:exitViewport={() => {
-				console.log('exit DASHEDLINE');
+				console.log('exit DASHEDLINE')
 			}}
 		>
 			{#if innerWidth > 1024}
@@ -437,11 +441,11 @@
 		<div
 			use:viewport
 			on:enterViewport={() => {
-				console.log('enter DASHEDLINE');
-				dashedLineScrolling2();
+				console.log('enter DASHEDLINE')
+				dashedLineScrolling2()
 			}}
 			on:exitViewport={() => {
-				console.log('exit DASHEDLINE');
+				console.log('exit DASHEDLINE')
 			}}
 		>
 			<svg
@@ -483,26 +487,115 @@
 		</div>
 	</section>
 	<section class="/*full-screen-section p-1 flex flex-col justify-center">
-		<div class="flex flex-wrap">
+		<div class="/*flex /*flex-wrap">
 			<SubHeader
-				class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
-				>I started learning programming in</SubHeader
+				class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+				>I studied Software Engineering at</SubHeader
 			>
 			<div>
 				<div class="flex flex-wrap">
 					<Title
-						class="ml-[15%] sm:ml-[35%] md:ml-[50%] inline drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
-						>high school</Title
+						class="ml-[5%] sm:ml-[15%] md:ml-[30%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+						>VIA University College</Title
 					>
 				</div>
-				<div class="grid md:gap-16 md:grid-cols-2">
-					<img src="src/images/gimi.png" alt="gimi" class="h-auto md:w-[45vw]" />
-					<Description class="flex drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)] mt-16"
-						>We were introduced to C++ first, where I could learn the basics of programming and I
-						could practice creating algorithms. Througout my studies I've participated in extra
-						courses in software developement where we were creating apps in HTML/CSS, Java and
-						Android studio In the last year we were working with C#
-					</Description>
+				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
+					<div
+						class="flex flex-row justify-start order-2 col-span-1 lg:relative lg:justify-normal lg:order-1 "
+					>
+						<img
+							src="src/images/via.png"
+							alt="via"
+							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10 "
+						/>
+					</div>
+					<div class="flex flex-row justify-end order-2 lg:order-1">
+						<Description
+							class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
+							>We were introduced to C++ first, where I could learn the basics of programming and I
+							could practice creating algorithms. Througout my studies I've participated in extra
+							courses in software developement where we were creating apps in HTML/CSS, Java and
+							Android studio In the last year we were working with C#
+						</Description>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<svg
+		id="transitionSVG3"
+		class=" ml-[20vw]"
+		width="60%"
+		height="h-auto"
+		viewBox="0 0 345 408"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			d="M0,0 Q25,150 172,204 T345,408"
+			stroke="white"
+			stroke-width="5"
+			stroke-linejoin="round"
+			stroke-linecap="round"
+		/>
+		<path
+			d="M0,0 Q25,150 172,204 T345,408"
+			stroke="#C0D1EB"
+			stroke-width="5"
+			stroke-linejoin="round"
+			stroke-linecap="round"
+			stroke-dasharray="20 20"
+		/>
+		<path
+			id="dashline3"
+			d="M345,408Q370,208 172,204Q25,150 0,0"
+			stroke="white"
+			stroke-width="5"
+			stroke-linejoin="round"
+			stroke-linecap="round"
+			pathLength="1"
+			stroke-dashoffset="0px"
+			stroke-dasharray="0.2941537710336538px 1px"
+		/>
+	</svg>
+	<section class="/*full-screen-section full-width-section p-1 /*flex /*flex-col justify-center">
+		<div class="/*flex /*flex-wrap">
+			<div class="balancedText" />
+			<SubHeader
+				class="balancedText sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline bg-slate-500 text-cyan-300 "
+				>I had my internship and student job at</SubHeader
+			>
+			<div>
+				<div class="/*flex /*flex-wrap">
+					<Title class="ml-[15%] sm:ml-[35%] md:ml-[50%] inline bg-slate-500 text-cyan-300"
+						>Keyhole</Title
+					>
+				</div>
+				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
+					<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
+						<Description
+							class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
+						>
+							We were introduced to C++ first, where I could learn the basics of programming and I
+							could practice creating algorithms. Througout my studies I've participated in extra
+							courses in software developement where we were creating apps in HTML/CSS, Java and
+							Android studio In the last year we were working with C#
+						</Description>
+					</div>
+					<div
+						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2 "
+					>
+						<!-- <img
+							src="src/images/viaUpperBig.png"
+							alt="viaUpperBig"
+							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10 "
+						/> -->
+						<img
+							src="src/images/viaUpper.png"
+							alt="viaUpper"
+							class=" mr-0 lg:w-auto min-h-full max-h-[348px] w-auto object-fit z-10 "
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -564,6 +657,10 @@
 	.test2 {
 		background-color: blueviolet;
 		/* display: inline; */
+	}
+
+	.balancedText {
+		text-wrap: balance;
 	}
 	.half-screen-section {
 		height: 50vh;

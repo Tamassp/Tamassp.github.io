@@ -1,49 +1,49 @@
 <script>
-	import LinkButton from '../components/LinkButton.svelte';
-	import Button from '../components/Button.svelte';
-	import Divider from '../components/Divider.svelte';
+	import LinkButton from '../components/LinkButton.svelte'
+	import Button from '../components/Button.svelte'
+	import Divider from '../components/Divider.svelte'
 
 	function handleClick() {
-		const pathUpper = document.querySelector('#upper');
-		const pathLower = document.querySelector('#lower');
-		console.log(pathUpper.getTotalLength());
-		console.log(pathLower.getTotalLength());
+		const pathUpper = document.querySelector('#upper')
+		const pathLower = document.querySelector('#lower')
+		console.log(pathUpper.getTotalLength())
+		console.log(pathLower.getTotalLength())
 	}
 	const handleMouseEnter = (e) => {
-		const targetElement = e.target;
+		const targetElement = e.target
 		if (targetElement.id === 'software') {
 			//const computer1 = document.getElementById("computer1")
-			const computer = document.getElementById('computer');
+			const computer = document.getElementById('computer')
 			//const pathComputer = document.querySelector("#computer path")
 			// console.log(pathComputer);
 			// console.log(pathComputer.getTotalLength());
 			// console.log("Hover")
-			computer?.classList.remove('unSelect');
-			computer?.classList.add('select');
-			console.log(computer?.classList);
+			computer?.classList.remove('unSelect')
+			computer?.classList.add('select')
+			console.log(computer?.classList)
 		}
 		if (targetElement.id === 'bands') {
-			const note = document.getElementById('note');
-			note?.classList.remove('unSelect');
-			note?.classList.add('select');
+			const note = document.getElementById('note')
+			note?.classList.remove('unSelect')
+			note?.classList.add('select')
 		}
-	};
+	}
 
 	const handleMouseLeave = (e) => {
-		const targetElement = e.target;
-		console.log(targetElement.id);
+		const targetElement = e.target
+		console.log(targetElement.id)
 		if (targetElement.id === 'software') {
-			const computer = document.getElementById('computer');
-			computer?.classList.remove('select');
-			computer?.classList.add('unSelect');
-			console.log(computer?.classList);
+			const computer = document.getElementById('computer')
+			computer?.classList.remove('select')
+			computer?.classList.add('unSelect')
+			console.log(computer?.classList)
 		}
 		if (targetElement.id === 'bands') {
-			const note = document.getElementById('note');
-			note?.classList.remove('select');
-			note?.classList.add('unSelect');
+			const note = document.getElementById('note')
+			note?.classList.remove('select')
+			note?.classList.add('unSelect')
 		}
-	};
+	}
 </script>
 
 <svelte:head>
@@ -52,7 +52,7 @@
 
 <!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
 
-<div class="pageContainer">
+<div class="w-full pageContainer">
 	<button on:click={handleClick}>Click</button>
 	<!-- improvising with svgs-->
 	<!-- <svg viewBox="0 0 100 100" fill="green">
