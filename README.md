@@ -8,9 +8,7 @@ Until then, I gathered the relevant information here:
 <br/>
 <p>I gained plenty of experience working at a startup company called <b>Keyhole</b>. Thanks to the cool team, I could be a part of the planning and development processes from day 1, allowing me to take responsibility of my work. I was mainly working with React and React native. We maintained and developed new features for a mobile and two web applications.</p>
 
-<br/>
-<h5>Demo Video:</h5>
-<a>https://github.com/Tamassp/Tamassp.github.io/assets/62295505/0cd7e3db-93f5-4a25-bde9-21fa147eaa6c</a>
+<a href="https://github.com/Tamassp/Tamassp.github.io/assets/62295505/0cd7e3db-93f5-4a25-bde9-21fa147eaa6c">Mobile App Demo</a>
 
 <br/>
 
@@ -36,9 +34,7 @@ Until then, I gathered the relevant information here:
 <br/>
 <p>We created a dashboard application as our Bachelor's. It had to take data from datapoints provided by companies, and we had to display these in an organized and customizable manner.</p>
 
-<br/>
-<h5>Demo Video:</h5>
-<a>https://github.com/Tamassp/Tamassp.github.io/assets/62295505/e5dbb2f7-6d06-414c-be34-e0275c44f9ce</a>
+<a href="https://github.com/Tamassp/Tamassp.github.io/assets/62295505/e5dbb2f7-6d06-414c-be34-e0275c44f9ce">Bachelor's Demo</a>
 
 <br/>
 
@@ -66,9 +62,7 @@ Until then, I gathered the relevant information here:
 <br/>
 <p>Though it is not written in a frontend framework, making a game in Unity provided me a lot of experience in component based development as well as in separation of concerns.</p>
 
-<br/>
-<h5>Demo Video:</h5>
-<a>https://github.com/Tamassp/Tamassp.github.io/assets/62295505/0ce912d7-0637-4e83-bfa8-7b2cd15bc2f3</a>
+<a href="https://github.com/Tamassp/Tamassp.github.io/assets/62295505/0ce912d7-0637-4e83-bfa8-7b2cd15bc2f3">Chess Strategy Game Demo</a>
 
 <br/>
 
