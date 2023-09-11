@@ -18,7 +18,8 @@
 	import Divider from '../../components/Divider.svelte'
 	import Popup from '../../components/Popup.svelte'
 	import CV from '../../components/CV.svelte'
-	import { bind } from 'svelte/internal'
+	import ProjectCard from '../../components/ProjectCard.svelte'
+	import Swiper from '../../components/Swiper.svelte'
 
 	export let data: PageData
 
@@ -181,6 +182,7 @@
 	<Popup show={popupIsOpen} on:close={closeCV}>
 		<CV />
 	</Popup>
+
 	<div class="h-screen /*bg-secondary">
 		<!-- SCROLL POSITION TEST -->
 		<!-- <div class="w-4 h-4 bg-primary" use:scrollPosition > 
@@ -648,6 +650,48 @@
             year we were working with C#
         </p>
     </section> -->
+	<section>
+		<Swiper
+			projects={[
+				{
+					title: 'Dashboard App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					]
+				},
+				{
+					title: 'Dashboard App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					]
+				}
+			]}
+		/>
+		<!-- <ProjectCard
+			title="Dashboard App"
+			subTitle="Implemented new features and mantained existing ones in a:"
+			bulletPoints={[
+				'React Native mobile app',
+				'React web app for tenants',
+				'React web app for landlords'
+			]}
+		/>
+		<ProjectCard
+			title="Dashboard App"
+			subTitle="Implemented new features and mantained existing ones in a:"
+			bulletPoints={[
+				'React Native mobile app',
+				'React web app for tenants',
+				'React web app for landlords'
+			]}
+		/> -->
+	</section>
 </div>
 
 <style>
