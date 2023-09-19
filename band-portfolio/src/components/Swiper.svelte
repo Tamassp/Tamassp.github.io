@@ -14,11 +14,11 @@
 
 {#if projects.length > 0}
 	<div class="wrapper">
-		<Header>University</Header>
-		<div class="flex overflow-x-auto ">
+		<Header>{title}</Header>
+		<div class="flex pt-2 -m-2 -ml-3 overflow-x-auto sm:-ml-8 ">
 			{#each projects as project}
 				<ProjectCard
-					class="m-6 ml-0"
+					class="m-6 ml-3 sm:ml-8"
 					title={project.title}
 					subTitle={project.subTitle}
 					bulletPoints={project.bulletPoints}

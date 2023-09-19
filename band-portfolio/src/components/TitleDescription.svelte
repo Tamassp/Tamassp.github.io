@@ -13,7 +13,7 @@
 	export let descriptionStyles = ''
 </script>
 
-<Header>{title}</Header>
+<Header class={titleStyles}>{title}</Header>
 {#if subTitle}
 	<Description class="font-bold mt-4 {subTitleStyles}">{subTitle}</Description>
 {/if}

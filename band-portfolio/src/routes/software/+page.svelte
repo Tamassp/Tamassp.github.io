@@ -670,8 +670,51 @@
 						'React web app for tenants',
 						'React web app for landlords'
 					]
+				},
+				{
+					title: 'Dashboard App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					]
+				},
+				{
+					title: 'Dashboard App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					]
 				}
 			]}
+			title="University"
+		/>
+		<Divider />
+		<Swiper
+			projects={[
+				{
+					title: 'Dashboard App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					]
+				},
+				{
+					title: 'Dashboard App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					]
+				}
+			]}
+			title="Work"
 		/>
 		<!-- <ProjectCard
 			title="Dashboard App"

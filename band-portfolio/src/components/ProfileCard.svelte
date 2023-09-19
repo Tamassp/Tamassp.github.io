@@ -13,7 +13,7 @@
 
 <div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16">
 	<div use:scrollPosition>
-		<Card class=" {$$props.class} flex flex-col justify-end justify-items-end md:p-16 md:pt-0 ">
+		<Card class=" {$$props.class} flex flex-col justify-end justify-items-end p-6 md:p-16 md:pt-0 ">
 			<img
 				src="src/images/profilepic.jpg"
 				alt="Profile Pic"
