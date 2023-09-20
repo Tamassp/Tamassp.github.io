@@ -669,7 +669,8 @@
 						'React Native mobile app',
 						'React web app for tenants',
 						'React web app for landlords'
-					]
+					],
+					demoOrientation: 'landscape'
 				},
 				{
 					title: 'Dashboard App',

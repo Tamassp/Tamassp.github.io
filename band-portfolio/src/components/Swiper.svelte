@@ -6,6 +6,7 @@
 		title: string
 		subTitle: string
 		bulletPoints: string[]
+		demoOrientation?: 'portrait' | 'landscape'
 	}
 
 	export let title = ''
@@ -22,6 +23,7 @@
 					title={project.title}
 					subTitle={project.subTitle}
 					bulletPoints={project.bulletPoints}
+					demoOrientation={project.demoOrientation}
 				/>
 			{/each}
 		</div>
