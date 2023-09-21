@@ -20,6 +20,7 @@
 	import CV from '../../components/CV.svelte'
 	import ProjectCard from '../../components/ProjectCard.svelte'
 	import Swiper from '../../components/Swiper.svelte'
+	import TypeScriptIcon from '../../icons/TypeScriptIcon.svelte'
 
 	export let data: PageData
 
@@ -654,32 +655,56 @@
 		<Swiper
 			projects={[
 				{
-					title: 'Dashboard App',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
-					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
-					]
-				},
-				{
-					title: 'Dashboard App',
+					title: 'Keyhole',
 					subTitle: 'Implemented new features and mantained existing ones in a:',
 					bulletPoints: [
 						'React Native mobile app',
 						'React web app for tenants',
 						'React web app for landlords'
 					],
-					demoOrientation: 'landscape'
-				},
+					projectColor: 'bg-[#ff8d93]',
+					icons: ['react', 'ts', 'js'],
+					demoSrc: 'src/images/khIntro.gif'
+				}
+			]}
+			title="Work"
+		/>
+		<Divider />
+		<Swiper
+			projects={[
 				{
-					title: 'Dashboard App',
+					title: 'BPR Dashboard',
 					subTitle: 'Implemented new features and mantained existing ones in a:',
 					bulletPoints: [
 						'React Native mobile app',
 						'React web app for tenants',
 						'React web app for landlords'
-					]
+					],
+					demoOrientation: 'landscape',
+					demoSrc: 'src/images/bprDemo.gif',
+					projectColor: 'bg-[#663399]'
+				},
+				{
+					title: 'Movie App',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					],
+					demoOrientation: 'landscape',
+					demoSrc: 'src/images/movieAppDemo.gif',
+					projectColor: 'bg-[#ff6600]'
+				},
+				{
+					title: 'Keyhole',
+					subTitle: 'Implemented new features and mantained existing ones in a:',
+					bulletPoints: [
+						'React Native mobile app',
+						'React web app for tenants',
+						'React web app for landlords'
+					],
+					projectColor: 'bg-[#ff8d93]'
 				},
 				{
 					title: 'Dashboard App',
@@ -693,29 +718,22 @@
 			]}
 			title="University"
 		/>
+
 		<Divider />
 		<Swiper
 			projects={[
 				{
-					title: 'Dashboard App',
+					title: 'Portfolio Website',
 					subTitle: 'Implemented new features and mantained existing ones in a:',
 					bulletPoints: [
 						'React Native mobile app',
 						'React web app for tenants',
 						'React web app for landlords'
-					]
-				},
-				{
-					title: 'Dashboard App',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
-					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
-					]
+					],
+					projectColor: 'bg-primary'
 				}
 			]}
-			title="Work"
+			title="Hobby"
 		/>
 		<!-- <ProjectCard
 			title="Dashboard App"

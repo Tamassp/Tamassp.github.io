@@ -1,3 +1,5 @@
+import TypeScriptIcon from "../icons/TypeScriptIcon.svelte"
+
 export function setScrollVar() {
 	window.addEventListener('scroll', setScrollVar);
 	window.addEventListener('resize', setScrollVar);
@@ -25,3 +27,10 @@ export function removeScrollVar() {
 // })
 
 // observer.observe(document.querySelector('.section-1'))
+
+
+// export function getIcon(icon: string){
+// 	if(icon == 'typescript'){
+// 		return <TypeScriptIcon />
+// 	}
+// }
