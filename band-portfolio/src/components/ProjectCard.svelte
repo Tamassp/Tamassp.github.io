@@ -17,10 +17,11 @@
 	export let subTitle = ' '
 	export let bulletPoints: string[] = []
 	export let description = ' '
-	export let demoOrientation: 'portrait' | 'landscape' = 'portrait'
+	export let demoOrientation: 'portrait' | 'landscape' | 'square' = 'portrait'
 	export let projectColor = 'bg-background'
 	export let icons: any[] = []
 	export let demoSrc = ''
+	export let year = ' '
 
 	let mdOffset = 0
 	let smOffset = 0
@@ -38,6 +39,12 @@
 >
 	{#if demoOrientation == 'portrait'}
 		<div class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[180px] aspect-[9/16] ">
+			<img src={demoSrc} alt="thumbnail gif" class="shadow-md" />
+		</div>
+	{:else if demoOrientation == 'square'}
+		<div
+			class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[112px] sm:h-[136px] aspect-[1/1] "
+		>
 			<img src={demoSrc} alt="thumbnail gif" class="shadow-md" />
 		</div>
 	{:else}
@@ -59,8 +66,10 @@
 				{subTitle}
 				{bulletPoints}
 				{description}
-				titleStyles="max-w-[calc(100%-100px)] md:max-w-[calc(100%-64px)] "
-				subTitleStyles="max-w-[calc(100%-{smOffset}px)] md:max-w-[calc(100%-64px)]  font-normal"
+				titleStyles="max-w-[calc(100%-128px)] md:max-w-[calc(100%-128px)] "
+				subTitleStyles="max-w-[calc(100%-{smOffset}px)] {demoOrientation == 'portrait'
+					? 'md:max-w-[calc(100%-64px)]'
+					: ''}  font-normal"
 			/>
 			<Divider size={24} />
 		</div>
@@ -85,7 +94,7 @@
 			{/if}
 		</div>
 		<div class="flex flex-row justify-end">
-			<Description class="mt-2">2022-2023</Description>
+			<Description class="mt-2">{year}</Description>
 		</div>
 	</div>
 </Card>

@@ -664,7 +664,8 @@
 					],
 					projectColor: 'bg-[#ff8d93]',
 					icons: ['react', 'ts', 'js'],
-					demoSrc: 'src/images/khIntro.gif'
+					demoSrc: 'src/images/khIntro.gif',
+					year: '2022-2023'
 				}
 			]}
 			title="Work"
@@ -674,46 +675,42 @@
 			projects={[
 				{
 					title: 'BPR Dashboard',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
+					subTitle: 'A solution for visualizing datapoints coming from different companies',
 					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
+						'React web app for datapoint management and visaualization',
+						'.NET API for data processing'
 					],
 					demoOrientation: 'landscape',
 					demoSrc: 'src/images/bprDemo.gif',
-					projectColor: 'bg-[#663399]'
+					projectColor: 'bg-[#663399]',
+					year: '2023'
 				},
 				{
-					title: 'Movie App',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
-					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
-					],
+					title: 'Movie Info App',
+					subTitle: 'An imdb-like app for searching movies, actors and tv shows',
+					bulletPoints: ['Blazor Web-Assembly app', 'Using TMDB API', 'Hosted in Azure'],
 					demoOrientation: 'landscape',
 					demoSrc: 'src/images/movieAppDemo.gif',
-					projectColor: 'bg-[#ff6600]'
+					projectColor: 'bg-[#DFA67B]',
+					year: '2022'
 				},
 				{
-					title: 'Keyhole',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
-					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
-					],
-					projectColor: 'bg-[#ff8d93]'
+					title: 'Rock Paper Scrissors',
+					subTitle: 'A VR Game created where the player has to fight a cactus',
+					bulletPoints: ['Unity', 'Oculus Interaction SDK', 'OVRCameraRig'],
+					projectColor: 'bg-[#79AC78]',
+					demoOrientation: 'square',
+					demoSrc: 'src/images/rockPaperDemo.gif',
+					year: '2022'
 				},
 				{
-					title: 'Dashboard App',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
-					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
-					]
+					title: 'Chess Strategy',
+					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
+					bulletPoints: ['Physics for projectiles', 'AI pathfinding', 'Animations, shaders etc.'],
+					projectColor: 'bg-[#666666]',
+					demoOrientation: 'landscape',
+					demoSrc: 'src/images/chessStrategyDemo.gif',
+					year: '2023'
 				}
 			]}
 			title="University"

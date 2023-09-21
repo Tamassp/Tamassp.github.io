@@ -7,10 +7,11 @@
 		title: string
 		subTitle: string
 		bulletPoints: string[]
-		demoOrientation?: 'portrait' | 'landscape'
+		demoOrientation?: 'portrait' | 'landscape' | 'square'
 		projectColor?: string
 		icons?: string[]
 		demoSrc?: string
+		year?: string
 	}
 
 	export let title = ''
