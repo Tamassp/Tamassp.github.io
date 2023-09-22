@@ -3,7 +3,7 @@
 	import { setScrollVar, removeScrollVar } from '../../utils/helpers.js'
 	import { draw, fade, slide } from 'svelte/transition'
 	// import IntersectionObserver from '../../utils/IntersectionObserver.svelte';
-	import viewport from './useViewportAction'
+	import viewport from '../../actions/useViewportAction.js'
 	import { scrollPosition } from '../../actions/scrollPosition.js'
 	import { windowResize } from '../../actions/windowResize.js'
 	import Header from '../../components/Header.svelte'
@@ -21,6 +21,9 @@
 	import ProjectCard from '../../components/ProjectCard.svelte'
 	import Swiper from '../../components/Swiper.svelte'
 	import TypeScriptIcon from '../../icons/TypeScriptIcon.svelte'
+	import TravelSign from '../../components/TravelSign.svelte'
+	import DottedLineLeft from '../../components/DottedLineLeft.svelte'
+	import DottedLineLeftSmall from '../../components/DottedLineLeftSmall.svelte'
 
 	export let data: PageData
 
@@ -91,81 +94,6 @@
 		console.log('loaded!')
 	}
 
-	// const onload = el => {
-	//     waiting++
-	//     el.addEventListener('load', () => {
-	//         waiting--
-	//         if (waiting === 0) {
-	//             notifyLoaded()
-	//         }
-	//     })
-	// }
-
-	//GETTING THE LENGHT OF THE SVGS
-	// var myPath = document.getElementById("#arrow1");
-	// var length = myPath.getTotalLength();
-	// console.log(length);
-
-	//SCROLL VALUE
-	// let scrollValue = 0;
-
-	// window.addEventListener('scroll', () => {
-	//     scrollValue = window.scrollY;
-	// });
-
-	function dashedLineScrolling() {
-		const offset = window.scrollY
-		const vh = window.innerHeight
-		function handleScroll() {
-			let scrollValue = (window.scrollY - offset) / vh
-			//let scrollValue = 0.5;
-			console.log(scrollValue)
-			console.log(offset)
-
-			const dashedLine = document.getElementById('dashline1')
-			//const dashedLineLength = dashedLine.getTotalLength();
-			// console.log(dashedLineLength);
-			if (scrollValue < 1) {
-				dashedLine.style.strokeDashoffset = scrollValue.toString()
-			}
-		}
-
-		window.addEventListener('scroll', handleScroll)
-
-		return {
-			destroy() {
-				window.removeEventListener('scroll', handleScroll)
-			}
-		}
-	}
-	function dashedLineScrolling2() {
-		const offset = window.scrollY
-		const vh = window.innerHeight
-		function handleScroll() {
-			let scrollValue = (window.scrollY - offset) / vh
-			//let scrollValue = 0.5;
-			console.log('SECOND' + scrollValue)
-			console.log(offset)
-
-			const dashedLine = document.getElementById('dashline2')
-			//const dashedLineLength = dashedLine.getTotalLength();
-			// console.log(dashedLineLength);
-			if (scrollValue < 1 && scrollValue > 0) {
-				//inverting the scrollValue
-				scrollValue = -scrollValue
-				dashedLine.style.strokeDashoffset = scrollValue.toString()
-			}
-		}
-
-		window.addEventListener('scroll', handleScroll)
-
-		return {
-			destroy() {
-				window.removeEventListener('scroll', handleScroll)
-			}
-		}
-	}
-
 	let travelSignVisible = false
 
 	function setTravelSign(a: boolean) {
@@ -195,16 +123,10 @@
 						<Title><TypeWriter {visible} text="Welcome!" /></Title>
 					</div>
 				{/if}
-				<!-- {#if isProfileExpanded}
-            <div class="flex items-center justify-center h-64">
-                <Header><TypeWriter {visible} text="Welcome!"/></Header>
-            </div>
-            {/if} -->
 				{#if visible}
 					<!-- <div class="h-[600px]"> -->
 					<span transition:fade={{ delay: 600, duration: 300 }}>
 						<div class="flex flex-col items-center justify-end">
-							<!-- transition:slide={{delay: 1000, duration: 1500}} -->
 							<ProfileCard
 								title="Tamas Peter"
 								description="Software Engineer"
@@ -220,17 +142,6 @@
 	</div>
 
 	<section class="full-width-section  -mt-[0vh] /*bg-accent">
-		<!-- <div class="svg-wrapper">
-        <svg height="50vh" width="90vw" xmlns="http://www.w3.org/2000/svg">
-            <rect class="shape" height="50vh" width="90vw" />
-            <div class="bg-yellow-100 text">ZACH SAUCIER</div>
-            <div class="text">ZACH SAUCIER</div>
-        </svg>
-    </div> -->
-		<!-- <div class="ml-[45vw] w-1 h-1 border-r border-b-2 {isProfileExpanded ? 'line-in' : 'line-out'}">
-
-    </div> -->
-
 		{#if visible}
 			<div
 				class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} 
@@ -280,36 +191,14 @@
 		<!-- <SubTitle>My story</SubTitle> -->
 		{#if travelSignVisible}
 			<!-- <div transition:fade={{delay: 0, duration: 600}}> -->
-			<svg
-				id="travelSign"
-				xmlns="http://www.w3.org/2000/svg"
-				width="320"
-				height="256"
-				viewBox="0 0 64 64"
-				fill="none"
-				class="ml-[calc(20%-144px)] mt-32"
-			>
-				<path
-					transition:draw={{ delay: 300, duration: 600 }}
-					d="M28 32V56"
-					stroke="black"
-					stroke-width="0.5"
-				/>
-				<path
-					transition:draw={{ delay: 0, duration: 600 }}
-					d="M2 32V8H48L62 20L48 32Z"
-					stroke="black"
-					stroke-width="0.5"
-				/>
-				<text x="7" y="24" font-family="/*Transport" font-size="10" fill="black">My Story</text>
-			</svg>
+			<TravelSign />
 			<!-- </div> -->
 		{/if}
 		<div
 			use:viewport
 			on:enterViewport={() => {
 				console.log('enter DASHEDLINE')
-				dashedLineScrolling()
+				//dashedLineScrolling()
 				setTravelSign(true)
 			}}
 			on:exitViewport={() => {
@@ -317,88 +206,11 @@
 			}}
 		>
 			{#if innerWidth > 1024}
-				<svg
-					class="ml-[20vw] "
-					width="60%"
-					height="h-auto"
-					viewBox="0 0 690 408"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M0,0 Q50,200 345,204 T690,408"
-						stroke="white"
-						stroke-width="5"
-						stroke-linejoin="round"
-						stroke-linecap="round"
-					/>
-					<path
-						d="M0,0 Q50,200 345,204 T690,408"
-						stroke="#C0D1EB"
-						stroke-width="5"
-						stroke-linejoin="round"
-						stroke-linecap="round"
-						stroke-dasharray="20 20"
-					/>
-					<path
-						id="dashline1"
-						d="M690,408Q640,208 345,204Q50,200 0,0"
-						stroke="white"
-						stroke-width="5"
-						stroke-linejoin="round"
-						stroke-linecap="round"
-						pathLength="1"
-						stroke-dashoffset="0px"
-						stroke-dasharray="0.2941537710336538px 1px"
-					/>
-				</svg>
+				<DottedLineLeft id="1" />
 			{:else}
-				<svg
-					id="transitionSVG3"
-					class=" ml-[20vw]"
-					width="60%"
-					height="h-auto"
-					viewBox="0 0 345 408"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M0,0 Q25,150 172,204 T345,408"
-						stroke="white"
-						stroke-width="5"
-						stroke-linejoin="round"
-						stroke-linecap="round"
-					/>
-					<path
-						d="M0,0 Q25,150 172,204 T345,408"
-						stroke="#C0D1EB"
-						stroke-width="5"
-						stroke-linejoin="round"
-						stroke-linecap="round"
-						stroke-dasharray="20 20"
-					/>
-					<path
-						id="dashline3"
-						d="M345,408Q370,208 172,204Q25,150 0,0"
-						stroke="white"
-						stroke-width="5"
-						stroke-linejoin="round"
-						stroke-linecap="round"
-						pathLength="1"
-						stroke-dashoffset="0px"
-						stroke-dasharray="0.2941537710336538px 1px"
-					/>
-				</svg>
+				<DottedLineLeftSmall />
 			{/if}
-			<!-- <svg use:onload class="arrowSVG" xmlns="http://www.w3.org/2000/svg" width="auto" height="60vh" viewBox="0 0 307 916" fill="none">
-            <path id="arrow1" d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 
-            311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 
-            632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 
-            866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 
-            876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" 
-            stroke="white" 
-            stroke-width="3.77953"/>
-        </svg> -->
+			<!-- </div> -->
 		</div>
 	</section>
 
@@ -441,53 +253,11 @@
 	<section class="/*min-h-screen /*full-screen-section bg-green-300 flex flex-col justify-center">
 		<div id="#section1" class={section1Animation ? 'section-1' : ''} />
 		<div class="section-1-animation" />
-		<div
-			use:viewport
-			on:enterViewport={() => {
-				console.log('enter DASHEDLINE')
-				dashedLineScrolling2()
-			}}
-			on:exitViewport={() => {
-				console.log('exit DASHEDLINE')
-			}}
-		>
-			<svg
-				id="transitionSVG2"
-				class=" ml-[20vw]"
-				width="60%"
-				height="h-auto"
-				viewBox="0 0 690 408"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					d="M0,0 Q50,200 345,204 T690,408"
-					stroke="white"
-					stroke-width="5"
-					stroke-linejoin="round"
-					stroke-linecap="round"
-				/>
-				<path
-					d="M0,0 Q50,200 345,204 T690,408"
-					stroke="#C0D1EB"
-					stroke-width="5"
-					stroke-linejoin="round"
-					stroke-linecap="round"
-					stroke-dasharray="20 20"
-				/>
-				<path
-					id="dashline2"
-					d="M690,408Q640,208 345,204Q50,200 0,0"
-					stroke="white"
-					stroke-width="5"
-					stroke-linejoin="round"
-					stroke-linecap="round"
-					pathLength="1"
-					stroke-dashoffset="0px"
-					stroke-dasharray="0.2941537710336538px 1px"
-				/>
-			</svg>
-		</div>
+		{#if innerWidth > 1024}
+			<DottedLineLeft id="2" inverted />
+		{:else}
+			<DottedLineLeftSmall />
+		{/if}
 	</section>
 	<section class="/*full-screen-section p-1 flex flex-col justify-center">
 		<div class="/*flex /*flex-wrap">
@@ -525,42 +295,11 @@
 			</div>
 		</div>
 	</section>
-	<svg
-		id="transitionSVG3"
-		class=" ml-[20vw]"
-		width="60%"
-		height="h-auto"
-		viewBox="0 0 345 408"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			d="M0,0 Q25,150 172,204 T345,408"
-			stroke="white"
-			stroke-width="5"
-			stroke-linejoin="round"
-			stroke-linecap="round"
-		/>
-		<path
-			d="M0,0 Q25,150 172,204 T345,408"
-			stroke="#C0D1EB"
-			stroke-width="5"
-			stroke-linejoin="round"
-			stroke-linecap="round"
-			stroke-dasharray="20 20"
-		/>
-		<path
-			id="dashline3"
-			d="M345,408Q370,208 172,204Q25,150 0,0"
-			stroke="white"
-			stroke-width="5"
-			stroke-linejoin="round"
-			stroke-linecap="round"
-			pathLength="1"
-			stroke-dashoffset="0px"
-			stroke-dasharray="0.2941537710336538px 1px"
-		/>
-	</svg>
+	{#if innerWidth > 1024}
+		<DottedLineLeft id="3" />
+	{:else}
+		<DottedLineLeftSmall />
+	{/if}
 	<section class="/*full-screen-section full-width-section p-1 /*flex /*flex-col justify-center">
 		<div class="/*flex /*flex-wrap">
 			<div class="balancedText" />
@@ -603,54 +342,11 @@
 			</div>
 		</div>
 	</section>
-	<svg
-		id="transitionSVG3"
-		class=" ml-[20vw]"
-		width="60%"
-		height="h-auto"
-		viewBox="0 0 345 408"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<path
-			d="M0,0 Q25,150 172,204 T345,408"
-			stroke="white"
-			stroke-width="5"
-			stroke-linejoin="round"
-			stroke-linecap="round"
-		/>
-		<path
-			d="M0,0 Q25,150 172,204 T345,408"
-			stroke="#C0D1EB"
-			stroke-width="5"
-			stroke-linejoin="round"
-			stroke-linecap="round"
-			stroke-dasharray="20 20"
-		/>
-		<path
-			id="dashline3"
-			d="M345,408Q370,208 172,204Q25,150 0,0"
-			stroke="white"
-			stroke-width="5"
-			stroke-linejoin="round"
-			stroke-linecap="round"
-			pathLength="1"
-			stroke-dashoffset="0px"
-			stroke-dasharray="0.2941537710336538px 1px"
-		/>
-	</svg>
-	<!-- <section class="min-h-screen">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" width="307" height="916" viewBox="0 0 307 916" fill="none">
-            <path d="M109.431 0.251831C131.77 166.396 305.918 113.338 304.894 205.489C303.714 311.844 -1.95896 266.452 1.92588 407.933C4.89191 515.952 133.166 472.157 170.862 632.716C177.181 659.627 175.051 897.988 175.051 897.988C163.872 870.228 141.383 866.516 141.383 866.516C173.344 876.966 175.124 914.666 175.124 914.666C182.606 876.132 202.062 863.814 202.062 863.814C184.452 879.835 195.361 872.857 175.051 897.639" stroke="black" stroke-width="3.77953"/>
-        </svg>
-        <p>We were introduced to C++ first, where I could learn the basics
-            of programming and I could practice creating algorithms. Througout my
-            studies I've participated in extra courses in software developement
-            where we were creating apps in HTML/CSS, Java and Android studio In the last
-            year we were working with C#
-        </p>
-    </section> -->
+	{#if innerWidth > 1024}
+		<DottedLineLeft id="4" inverted />
+	{:else}
+		<DottedLineLeftSmall />
+	{/if}
 	<section>
 		<Swiper
 			projects={[
@@ -757,10 +453,6 @@
 	:root {
 		--scroll: 0;
 	}
-	.test2 {
-		background-color: blueviolet;
-		/* display: inline; */
-	}
 
 	.balancedText {
 		text-wrap: balance;
@@ -851,29 +543,6 @@
 		}
 	}
 
-	/* .borderImage{
-        border: 30px solid transparent;
-        border-image-source: url(https://picsum.photos/200/300);
-        border-image-slice: 30;
-        border-image-repeat: round;
-    } */
-
-	.shape {
-		stroke-dasharray: 50;
-		stroke-dashoffset: 700;
-		stroke-width: 8px;
-		fill: transparent;
-		stroke: #19f6e8;
-		border-bottom: 5px solid black;
-		transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
-	}
-
-	.svg-wrapper:hover .shape {
-		stroke-width: 2px;
-		stroke-dashoffset: 600;
-		stroke-dasharray: 50;
-	}
-
 	.line-in {
 		animation: line-in 1600ms forwards;
 	}
@@ -891,61 +560,6 @@
 			height: 50vh;
 			width: 45vw;
 		}
-	}
-
-	svg {
-		/* filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4)); */
-	}
-
-	#shadowPath {
-		filter: url(#dropshadow);
-	}
-
-	.arrowSVG {
-		stroke-dasharray: 1500;
-		stroke-dashoffset: 0;
-	}
-
-	@keyframes arrowAnim {
-		0% {
-			stroke-dashoffset: 1500;
-		}
-		100% {
-			stroke-dashoffset: 0;
-		}
-	}
-
-	.arrowSVG:hover {
-		animation: arrowAnim 1s forwards;
-		animation: dashline1Anim 1s forwards;
-	}
-
-	#dashline1 {
-		stroke-dasharray: 1px 1px;
-		stroke-dashoffset: 0;
-	}
-
-	#dashline2 {
-		stroke-dasharray: 1px 1px;
-		stroke-dashoffset: 0;
-	}
-
-	#transitionSVG2 {
-		transform: scale(1, -1);
-		translate: calc(0, -100);
-	}
-
-	@keyframes dashline1Anim {
-		0% {
-			stroke-dasharray: 1px 1px;
-		}
-		100% {
-			stroke-dasharray: 0px 1px;
-		}
-	}
-
-	#dashline1:hover {
-		animation: dashline1Anim 1s forwards;
 	}
 
 	#travelSign {
