@@ -24,6 +24,7 @@
 	import TravelSign from '../../components/TravelSign.svelte'
 	import DottedLineLeft from '../../components/DottedLineLeft.svelte'
 	import DottedLineLeftSmall from '../../components/DottedLineLeftSmall.svelte'
+	import Arrow from '../../icons/Arrow.svelte'
 
 	export let data: PageData
 
@@ -332,11 +333,25 @@
 							alt="viaUpperBig"
 							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10 "
 						/> -->
-						<img
+						<!-- <img
 							src="src/images/viaUpper.png"
 							alt="viaUpper"
 							class=" mr-0 lg:w-auto min-h-full max-h-[348px] w-auto object-fit z-10 "
-						/>
+						/> -->
+						<div class="relative flex justify-end w-[70%]">
+							<div
+								transition:fade={{ delay: 600, duration: 300 }}
+								class="absolute top-[30%] left-[68%] flex justify-between "
+							>
+								<Arrow class="scale-75 md:scale-100 " />
+								<Description small>This window here</Description>
+							</div>
+							<img
+								src="src/images/via.png"
+								alt="via"
+								class="z-10 h-auto min-h-full mr-0 lg:w-auto object-fit"
+							/>
+						</div>
 					</div>
 				</div>
 			</div>
