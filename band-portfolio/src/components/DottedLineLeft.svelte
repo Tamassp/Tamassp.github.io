@@ -4,31 +4,7 @@
 	export let inverted = false
 	export let id: string = '1'
 	const elmentID = 'dashline' + id
-	// function dashedLineScrolling() {
-	// 	const offset = window.scrollY
-	// 	const vh = window.innerHeight
-	// 	function handleScroll() {
-	// 		let scrollValue = (window.scrollY - offset) / vh
-	// 		//let scrollValue = 0.5;
-	// 		console.log(scrollValue)
-	// 		console.log(offset)
 
-	// 		const dashedLine = document.getElementById('dashline1')
-	// 		//const dashedLineLength = dashedLine.getTotalLength();
-	// 		// console.log(dashedLineLength);
-	// 		if (scrollValue < 1) {
-	// 			dashedLine.style.strokeDashoffset = scrollValue.toString()
-	// 		}
-	// 	}
-
-	// 	window.addEventListener('scroll', handleScroll)
-
-	// 	return {
-	// 		destroy() {
-	// 			window.removeEventListener('scroll', handleScroll)
-	// 		}
-	// 	}
-	// }
 	let firstTime = true
 	let offset = 0
 	let elementHeight = 0

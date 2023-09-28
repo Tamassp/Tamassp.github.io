@@ -142,7 +142,7 @@
 		</div>
 	</div>
 
-	<section class="full-width-section  -mt-[0vh] /*bg-accent">
+	<section class="full-width-section  -mt-[0vh] mb-32 /*bg-accent">
 		{#if visible}
 			<div
 				class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} 
@@ -186,34 +186,35 @@
 			</div>
 		{/if}
 	</section>
-	<section class="flex flex-col justify-center min-h-screen bg-green-300 full-screen-section">
-		<div id="#section1" class={section1Animation ? 'section-1' : ''} />
-		<div class="section-1-animation" />
-		<!-- <SubTitle>My story</SubTitle> -->
-		{#if travelSignVisible}
-			<!-- <div transition:fade={{delay: 0, duration: 600}}> -->
-			<TravelSign />
-			<!-- </div> -->
+	{#if travelSignVisible}
+		<!-- <div transition:fade={{delay: 0, duration: 600}}> -->
+		<TravelSign />
+		<!-- </div> -->
+	{/if}
+	<!-- <section class="flex flex-col justify-center min-h-screen bg-green-300 full-screen-section"> -->
+	<div id="#section1" class={section1Animation ? 'section-1' : ''} />
+	<div class="section-1-animation" />
+	<!-- <SubTitle>My story</SubTitle> -->
+
+	<div
+		use:viewport
+		on:enterViewport={() => {
+			console.log('enter DASHEDLINE')
+			//dashedLineScrolling()
+			setTravelSign(true)
+		}}
+		on:exitViewport={() => {
+			console.log('exit DASHEDLINE')
+		}}
+	>
+		{#if innerWidth > 1024}
+			<DottedLineLeft id="1" />
+		{:else}
+			<DottedLineLeftSmall id="11" />
 		{/if}
-		<div
-			use:viewport
-			on:enterViewport={() => {
-				console.log('enter DASHEDLINE')
-				//dashedLineScrolling()
-				setTravelSign(true)
-			}}
-			on:exitViewport={() => {
-				console.log('exit DASHEDLINE')
-			}}
-		>
-			{#if innerWidth > 1024}
-				<DottedLineLeft id="1" />
-			{:else}
-				<DottedLineLeftSmall />
-			{/if}
-			<!-- </div> -->
-		</div>
-	</section>
+		<!-- </div> -->
+	</div>
+	<!-- </section> -->
 
 	<section class="/*full-screen-section full-width-section p-1 /*flex /*flex-col justify-center">
 		<div class="/*flex /*flex-wrap">
@@ -257,7 +258,7 @@
 		{#if innerWidth > 1024}
 			<DottedLineLeft id="2" inverted />
 		{:else}
-			<DottedLineLeftSmall />
+			<DottedLineLeftSmall id="22" inverted />
 		{/if}
 	</section>
 	<section class="/*full-screen-section p-1 flex flex-col justify-center">
@@ -299,7 +300,7 @@
 	{#if innerWidth > 1024}
 		<DottedLineLeft id="3" />
 	{:else}
-		<DottedLineLeftSmall />
+		<DottedLineLeftSmall id="33" />
 	{/if}
 	<section class="/*full-screen-section full-width-section p-1 /*flex /*flex-col justify-center">
 		<div class="/*flex /*flex-wrap">
@@ -360,7 +361,7 @@
 	{#if innerWidth > 1024}
 		<DottedLineLeft id="4" inverted />
 	{:else}
-		<DottedLineLeftSmall />
+		<DottedLineLeftSmall id="44" inverted />
 	{/if}
 	<section>
 		<Swiper
