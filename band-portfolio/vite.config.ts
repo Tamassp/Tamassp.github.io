@@ -3,9 +3,10 @@ import type { UserConfig } from 'vite';
 
 const config: UserConfig = {
 	plugins: [sveltekit()],
-// 	server: {
-//     host: true
-//   }
+	// 	server: {
+	//     host: true
+	//   }
+	base: './',
 };
 
 export default config;
