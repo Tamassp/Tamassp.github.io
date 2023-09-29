@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
 	import { setScrollVar, removeScrollVar } from '../../utils/helpers.js'
-	import { draw, fade, slide } from 'svelte/transition'
+	import { draw, fade, slide, fly } from 'svelte/transition'
+	import { quintOut } from 'svelte/easing'
 	// import IntersectionObserver from '../../utils/IntersectionObserver.svelte';
 	import viewport from '../../actions/useViewportAction.js'
 	import { scrollPosition } from '../../actions/scrollPosition.js'
@@ -37,6 +38,12 @@
 	let section1Animation = false
 
 	let popupIsOpen = false
+
+	let highSchool = false
+	let highSchoolDescription = false
+	let highSchoolImg = false
+	let university = false
+	let work = false
 
 	// let scrollPercentage = --scroll
 
@@ -223,21 +230,36 @@
 				>I started learning programming in</SubHeader
 			>
 			<div>
-				<div class="/*flex /*flex-wrap">
-					<Title class="ml-[15%] sm:ml-[35%] md:ml-[50%] inline bg-slate-500 text-cyan-300"
-						>high school</Title
-					>
+				<div
+					use:viewport
+					on:enterViewport={() => {
+						highSchool = true
+						highSchoolDescription = true
+					}}
+					on:exitViewport={() => {}}
+				/>
+				<div class="w-full h-16">
+					{#if highSchool}
+						<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] transitionFromRight">
+							<Title class="inline bg-slate-500 text-cyan-300">high school</Title>
+						</div>
+					{/if}
 				</div>
 				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
 					<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
-						<Description
-							class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
-						>
-							We were introduced to C++ first, where I could learn the basics of programming and I
-							could practice creating algorithms. Througout my studies I've participated in extra
-							courses in software developement where we were creating apps in HTML/CSS, Java and
-							Android studio In the last year we were working with C#
-						</Description>
+						{#if highSchoolDescription}
+							<div class="transitionFromLeft ">
+								<Description
+									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20
+									"
+								>
+									We were introduced to C++ first, where I could learn the basics of programming and
+									I could practice creating algorithms. Througout my studies I've participated in
+									extra courses in software developement where we were creating apps in HTML/CSS,
+									Java and Android studio In the last year we were working with C#
+								</Description>
+							</div>
+						{/if}
 					</div>
 					<div
 						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2 "
@@ -625,6 +647,36 @@
 		100% {
 			-webkit-transform: translateX(-1px) rotate(0);
 			transform: translateX(-1px) rotate(0);
+		}
+	}
+
+	.transitionFromRight {
+		animation: transitionFromRight 1s ease-out;
+	}
+
+	@keyframes transitionFromRight {
+		0% {
+			transform: translateX(100px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(0%);
+			opacity: 1;
+		}
+	}
+
+	.transitionFromLeft {
+		animation: transitionFromLeft 1s ease-out;
+	}
+
+	@keyframes transitionFromLeft {
+		0% {
+			transform: translateX(-100px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(0%);
+			opacity: 1;
 		}
 	}
 </style>

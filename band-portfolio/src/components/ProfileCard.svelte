@@ -17,7 +17,7 @@
 			<img
 				src="src/images/profilepic.jpg"
 				alt="Profile Pic"
-				class="z-10 w-32 h-32 mx-auto -mt-16 border shadow-xl"
+				class="z-10 w-32 h-32 mx-auto -mt-16 border shadow-xl aspect-square"
 			/>
 			<div class="relative">
 				<div class="absolute z-0 w-32 h-32 border-2 -top-28 left-4" />
