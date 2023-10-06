@@ -19,13 +19,15 @@
 </script>
 
 {#if projects.length > 0}
-	<div class="wrapper">
+	<div class="relative wrapper">
 		<Header>{title}</Header>
-		<div class="flex pt-2 -m-2 -ml-3 overflow-x-auto sm:-ml-8 ">
+		<div class="flex pt-2 /*-m-2 /*-ml-3 overflow-x-auto sm:-ml-8">
 			{#each projects as project, i}
-				<ProjectCard class="m-6 ml-3 sm:ml-8" {...project} />
+				<ProjectCard class="mt-6 mb-6 mr-3 sm:ml-8" {...project} />
 			{/each}
 		</div>
+		<div class="absolute right-0 w-16 pointer-events-none inset-y-8 fader" />
+		<div class="absolute w-16 rotate-180 pointer-events-none -left-8 inset-y-8 fader" />
 	</div>
 {/if}
 
@@ -44,5 +46,10 @@
 		border-radius: 10px;
 		background-color: #c0d1eb;
 		/* -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); */
+	}
+
+	.fader {
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0, #fff 100%);
+		/* background-color: aqua; */
 	}
 </style>

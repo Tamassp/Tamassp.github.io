@@ -66,7 +66,7 @@
 		// 	//cleanup
 		// 	removeScrollVar()
 		// }
-		visible = true
+		// visible = true
 		console.log('visible: ' + visible)
 	})
 	//setScrollVar()
@@ -128,11 +128,10 @@
     </div>-->
 		<div class="absolute top-0 bottom-0 left-0 right-0 m-auto w-fit h-fit">
 			<section class="grid min-h-full full-width-section md:gap-16 md:grid-cols-2 lg:gap-32">
-				{#if visible}
-					<div class="flex items-center justify-center h-64">
-						<Title><TypeWriter {visible} text="Welcome!" /></Title>
-					</div>
-				{/if}
+				<div class="flex items-center justify-center h-64">
+					<Title><TypeWriter {visible} text="Welcome!" /></Title>
+				</div>
+
 				{#if visible}
 					<!-- <div class="h-[600px]"> -->
 					<span transition:fade={{ delay: 600, duration: 300 }}>

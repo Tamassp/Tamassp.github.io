@@ -3,10 +3,10 @@ export function scrollPosition(node) {
 	const viewportHeight = window.innerHeight / 2 - 124;
 	function handleScroll() {
 		scrollValue = window.scrollY;
-		if (scrollValue < viewportHeight + 112) {
+		if (scrollValue < viewportHeight + 164) {
 			//MOVING THE ELEMENTS
 			//node.style.transform = `translateY(${scrollValue}px)`;
-			node.style.height = `${218 + Math.round(scrollValue)}px`;
+			node.style.height = `${0 + Math.round(scrollValue)}px`;
 		}
 	}
 

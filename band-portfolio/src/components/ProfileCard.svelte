@@ -12,7 +12,7 @@
 </script>
 
 <div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16">
-	<div use:scrollPosition>
+	<div>
 		<Card class=" {$$props.class} flex flex-col justify-end justify-items-end p-6 md:p-16 md:pt-0 ">
 			<img
 				src="src/images/profilepic.jpg"
@@ -25,6 +25,7 @@
 			<h5 class="mt-8 text-2xl font-bold tracking-tight text-center text-background">{title}</h5>
 			<p class="font-normal text-center text-gray-700 dark:text-gray-400">{description}</p>
 		</Card>
+		<div use:scrollPosition class="border-r" />
 	</div>
 </div>
 
