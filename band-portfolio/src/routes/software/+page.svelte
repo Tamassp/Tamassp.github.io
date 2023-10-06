@@ -388,6 +388,7 @@
 	{/if}
 	<section>
 		<Swiper
+			{innerWidth}
 			projects={[
 				{
 					title: 'Keyhole',
@@ -407,6 +408,7 @@
 		/>
 		<Divider />
 		<Swiper
+			{innerWidth}
 			projects={[
 				{
 					title: 'BPR Dashboard',
@@ -453,6 +455,7 @@
 
 		<Divider />
 		<Swiper
+			{innerWidth}
 			projects={[
 				{
 					title: 'Portfolio Website',

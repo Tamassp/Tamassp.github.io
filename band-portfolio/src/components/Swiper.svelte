@@ -16,18 +16,21 @@
 
 	export let title = ''
 	export let projects: Project[] = []
+	export let innerWidth = 0
 </script>
 
 {#if projects.length > 0}
 	<div class="relative wrapper">
 		<Header>{title}</Header>
-		<div class="flex pt-2 /*-m-2 /*-ml-3 overflow-x-auto sm:-ml-8">
+		<div class="flex pt-2 /*-m-2 -ml-6 -mr-6 overflow-x-auto sm:-ml-8 sm:-mr-0">
 			{#each projects as project, i}
-				<ProjectCard class="mt-6 mb-6 mr-3 sm:ml-8" {...project} />
+				<ProjectCard class="mt-6 mb-6 ml-6 mr-6 sm:ml-8" {...project} />
 			{/each}
 		</div>
-		<div class="absolute right-0 w-16 pointer-events-none inset-y-8 fader" />
-		<div class="absolute w-16 rotate-180 pointer-events-none -left-8 inset-y-8 fader" />
+		{#if innerWidth > 640}
+			<div class="absolute right-0 w-16 pointer-events-none inset-y-8 fader" />
+			<div class="absolute w-16 rotate-180 pointer-events-none -left-8 inset-y-8 fader" />
+		{/if}
 	</div>
 {/if}
 
