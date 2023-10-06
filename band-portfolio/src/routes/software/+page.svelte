@@ -48,24 +48,26 @@
 	// let scrollPercentage = --scroll
 
 	onMount(() => {
-		setScrollVar()
-		const observer = new IntersectionObserver((entries) => {
-			// Loop over the entries
-			entries.forEach((entry) => {
-				// If the element is visible
-				if (entry.isIntersecting) {
-					// Add the animation class
-					// entry.target.classList.add('section-1-animation');
-					section1Animation = true
-				}
-			})
-		})
+		// setScrollVar()
+		// const observer = new IntersectionObserver((entries) => {
+		// 	// Loop over the entries
+		// 	entries.forEach((entry) => {
+		// 		// If the element is visible
+		// 		if (entry.isIntersecting) {
+		// 			// Add the animation class
+		// 			// entry.target.classList.add('section-1-animation');
+		// 			section1Animation = true
+		// 		}
+		// 	})
+		// })
 
-		observer.observe(document.querySelector('section-1'))
-		return () => {
-			//cleanup
-			removeScrollVar()
-		}
+		// observer.observe(document.querySelector('section-1'))
+		// return () => {
+		// 	//cleanup
+		// 	removeScrollVar()
+		// }
+		visible = true
+		console.log('visible: ' + visible)
 	})
 	//setScrollVar()
 
@@ -125,7 +127,7 @@
 		<!-- <div class="w-4 h-4 bg-primary" use:scrollPosition > 
     </div>-->
 		<div class="absolute top-0 bottom-0 left-0 right-0 m-auto w-fit h-fit">
-			<section class="grid min-h-full full-width-section md:gap-16 md:grid-cols-2 lg:gap-32 ">
+			<section class="grid min-h-full full-width-section md:gap-16 md:grid-cols-2 lg:gap-32">
 				{#if visible}
 					<div class="flex items-center justify-center h-64">
 						<Title><TypeWriter {visible} text="Welcome!" /></Title>
@@ -149,11 +151,11 @@
 		</div>
 	</div>
 
-	<section class="full-width-section  -mt-[0vh] mb-32 /*bg-accent">
+	<section class="full-width-section -mt-[0vh] mb-32 /*bg-accent">
 		{#if visible}
 			<div
 				class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} 
-					p-4 pr-6 mr-2 pt-[128px] mt-[128px] md:mt-0 /*border-b /*border-r 
+					p-4 pr-6 mr-2 pt-[128px] mt-[128px] md:mt-0 /*border-b /*border-r
 					flex flex-col items-center justify-center"
 			>
 				<SubHeader class="">Software Engineer specialized in React/React Native</SubHeader>
@@ -248,7 +250,7 @@
 				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
 					<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
 						{#if highSchoolDescription}
-							<div class="transitionFromLeft ">
+							<div class="transitionFromLeft">
 								<Description
 									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20
 									"
@@ -262,12 +264,12 @@
 						{/if}
 					</div>
 					<div
-						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2 "
+						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
 					>
 						<img
 							src="src/images/gimi.png"
 							alt="gimi"
-							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10 "
+							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
 						/>
 					</div>
 				</div>
@@ -298,12 +300,12 @@
 				</div>
 				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
 					<div
-						class="flex flex-row justify-start order-2 col-span-1 lg:relative lg:justify-normal lg:order-1 "
+						class="flex flex-row justify-start order-2 col-span-1 lg:relative lg:justify-normal lg:order-1"
 					>
 						<img
 							src="src/images/via.png"
 							alt="via"
-							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10 "
+							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
 						/>
 					</div>
 					<div class="flex flex-row justify-end order-2 lg:order-1">
@@ -349,7 +351,7 @@
 						</Description>
 					</div>
 					<div
-						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2 "
+						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
 					>
 						<!-- <img
 							src="src/images/viaUpperBig.png"
@@ -364,7 +366,7 @@
 						<div class="relative flex justify-end w-[70%]">
 							<div
 								transition:fade={{ delay: 600, duration: 300 }}
-								class="absolute top-[30%] left-[68%] flex justify-between "
+								class="absolute top-[30%] left-[68%] flex justify-between"
 							>
 								<Arrow class="scale-75 md:scale-100 " />
 								<Description small>This window here</Description>

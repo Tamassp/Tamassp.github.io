@@ -1,23 +1,25 @@
 <script>
-	import Youtube from 'svelte-youtube-embed';
-	import { AudioPlayer } from 'svelte-mp3';
-	import Divider from '../../components/Divider.svelte';
-	import Button from '../../components/Button.svelte';
-	import TitleDescriptionCard from '../../components/TitleDescriptionCard.svelte';
-	let src = 'src/images/bandCover.jpg';
-	let src2 = 'src/images/band2.jpg';
+	import Youtube from 'svelte-youtube-embed'
+	import { AudioPlayer } from 'svelte-mp3'
+	import Divider from '../../components/Divider.svelte'
+	import Button from '../../components/Button.svelte'
+	import TitleDescriptionCard from '../../components/TitleDescriptionCard.svelte'
+	let src = 'src/images/bandCover.jpg'
+	let src2 = 'src/images/band2.jpg'
 	//let recordingList = ['src/recordings/Watermelon Sugar Demo.mp3', 'src/recordings/Watermelon Sugar Demo.mp3'];
 	let recordingList = [
 		'https://filesamples.com/samples/audio/mp3/sample3.mp3',
 		'https://filesamples.com/samples/audio/mp3/sample3.mp3'
-	];
-	let recording = recordingList[0];
+	]
+	let recording = recordingList[0]
 
-	let innerWidth = 0;
-	let innerHeight = 0;
+	let innerWidth = 0
+	let innerHeight = 0
 
-	let controller;
-	$: console.dir(controller); // Output: DOM element object
+	let controller
+	$: console.dir(controller) // Output: DOM element object
+
+	console.log('OIII')
 </script>
 
 <svelte:head>

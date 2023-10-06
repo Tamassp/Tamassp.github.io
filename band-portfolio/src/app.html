@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+	<script>
+		 window.process = {
+				env: {
+					NODE_ENV: 'development' // or 'production'
+				}
+			}
+	</script>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />

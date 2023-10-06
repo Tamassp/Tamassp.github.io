@@ -1,23 +1,36 @@
-<script>
+<script lang="ts">
 	import LinkButton from '../components/LinkButton.svelte'
 	import Button from '../components/Button.svelte'
 	import Divider from '../components/Divider.svelte'
+	import { onMount } from 'svelte'
+
+	let clicked = false
+
+	setTimeout(() => {
+		clicked = true
+	}, 1000)
+
+	onMount(() => {
+		console.log('mounted')
+	})
 
 	function handleClick() {
-		const pathUpper = document.querySelector('#upper')
-		const pathLower = document.querySelector('#lower')
-		console.log(pathUpper.getTotalLength())
-		console.log(pathLower.getTotalLength())
+		if (!clicked) {
+			clicked = true
+		} else {
+			clicked = false
+		}
+
+		console.log('clicked')
+		// const pathUpper = document.querySelector('#upper')
+		// const pathLower = document.querySelector('#lower')
+		// console.log(pathUpper.getTotalLength())
+		// console.log(pathLower.getTotalLength())
 	}
-	const handleMouseEnter = (e) => {
-		const targetElement = e.target
+	const handleMouseEnter = (e: MouseEvent) => {
+		const targetElement = e.target as HTMLElement
 		if (targetElement.id === 'software') {
-			//const computer1 = document.getElementById("computer1")
 			const computer = document.getElementById('computer')
-			//const pathComputer = document.querySelector("#computer path")
-			// console.log(pathComputer);
-			// console.log(pathComputer.getTotalLength());
-			// console.log("Hover")
 			computer?.classList.remove('unSelect')
 			computer?.classList.add('select')
 			console.log(computer?.classList)
@@ -29,7 +42,7 @@
 		}
 	}
 
-	const handleMouseLeave = (e) => {
+	const handleMouseLeave = (e: MouseEvent) => {
 		const targetElement = e.target
 		console.log(targetElement.id)
 		if (targetElement.id === 'software') {
@@ -44,6 +57,14 @@
 			note?.classList.add('unSelect')
 		}
 	}
+
+	//variable Init
+	let count = 0
+	//function to be called on click
+	function incrementCount() {
+		//incremtent
+		count++
+	}
 </script>
 
 <svelte:head>
@@ -51,9 +72,12 @@
 </svelte:head>
 
 <!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
-
+<button on:click={incrementCount}>
+	Clicked {count}
+	{count === 1 ? 'time' : 'times'}
+</button>
 <div class="w-full pageContainer">
-	<button on:click={handleClick}>Click</button>
+	<button on:click={handleClick} class={clicked ? 'bg-primary' : 'bg-accent'}>Click</button>
 	<!-- improvising with svgs-->
 	<!-- <svg viewBox="0 0 100 100" fill="green">
         <path 
@@ -71,7 +95,6 @@
     /> 
     </svg>-->
 	<nav>
-		<!-- <button on:click={handleClick}>Click</button> -->
 		<LinkButton
 			id="software"
 			on:mouseenter={handleMouseEnter}
@@ -111,7 +134,6 @@
 
 			<h3 class="">Software</h3>
 		</LinkButton>
-		<!-- <Divider size={0} /> -->
 		<LinkButton
 			id="bands"
 			on:mouseenter={handleMouseEnter}
@@ -136,12 +158,6 @@
 			Bands
 		</LinkButton>
 	</nav>
-	<!-- <Button type='primary' on:click={handleClick} navigateTo="/bands">
-        <h2>Software</h2>
-    </Button>
-    <Button type='primary' on:click={handleClick}>
-        <h2>Bands</h2>
-    </Button> -->
 </div>
 
 <style>
