@@ -78,7 +78,7 @@
 		/>
 		<path
 			d="M0,0 Q50,200 345,204 T690,408"
-			stroke="#C0D1EB"
+			stroke="rgba(23,97,120,0.95)"
 			stroke-width="5"
 			stroke-linejoin="round"
 			stroke-linecap="round"
@@ -88,7 +88,7 @@
 			id={elmentID}
 			d="M690,408Q640,208 345,204Q50,200 0,0"
 			stroke="white"
-			stroke-width="5"
+			stroke-width="6"
 			stroke-linejoin="round"
 			stroke-linecap="round"
 			pathLength="1"
@@ -98,6 +98,7 @@
 	</svg>
 </div>
 
+<!-- color:C0D1EB -->
 <!-- stroke-dasharray="0.2941537710336538px 1px" -->
 <style>
 	.invertedSVG {

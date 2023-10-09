@@ -4,19 +4,24 @@
 	import ProjectCard from './ProjectCard.svelte'
 
 	type Project = {
-		title: string
-		subTitle: string
 		bulletPoints: string[]
 		demoOrientation?: 'portrait' | 'landscape' | 'square'
-		projectColor?: string
-		icons?: string[]
 		demoSrc?: string
+		description?: string
+		icons?: string[]
+		projectColor?: string
+		subTitle: string
+		title: string
 		year?: string
 	}
 
 	export let title = ''
 	export let projects: Project[] = []
 	export let innerWidth = 0
+	function onProjectCardClick(title: string, description: string) {
+		console.log('title', title || 'no title')
+		console.log('description', description || 'no description')
+	}
 </script>
 
 {#if projects.length > 0}
@@ -24,7 +29,11 @@
 		<Header>{title}</Header>
 		<div class="flex pt-2 /*-m-2 -ml-6 -mr-6 overflow-x-auto sm:-ml-8 sm:-mr-0">
 			{#each projects as project, i}
-				<ProjectCard class="mt-6 mb-6 ml-6 mr-6 sm:ml-8" {...project} />
+				<ProjectCard
+					class="mt-6 mb-6 ml-6 mr-6 sm:ml-8"
+					{...project}
+					onCardClick={onProjectCardClick(project.title, project.description || '')}
+				/>
 			{/each}
 		</div>
 		{#if innerWidth > 640}

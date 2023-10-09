@@ -1,7 +1,7 @@
 <script>
-	import Divider from './Divider.svelte';
-	import Header from './Header.svelte';
-	import TitleDescription from './TitleDescription.svelte';
+	import Divider from './Divider.svelte'
+	import Header from './Header.svelte'
+	import TitleDescription from './TitleDescription.svelte'
 </script>
 
 <!-- Grid for the text -->

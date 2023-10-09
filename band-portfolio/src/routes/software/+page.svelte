@@ -26,6 +26,7 @@
 	import DottedLineLeft from '../../components/DottedLineLeft.svelte'
 	import DottedLineLeftSmall from '../../components/DottedLineLeftSmall.svelte'
 	import Arrow from '../../icons/Arrow.svelte'
+	import Footer from '../../components/Footer.svelte'
 
 	export let data: PageData
 
@@ -38,12 +39,16 @@
 	let section1Animation = false
 
 	let popupIsOpen = false
+	let projectPopupIsOpen = false
 
 	let highSchool = false
 	let highSchoolDescription = false
 	let highSchoolImg = false
 	let university = false
 	let work = false
+
+	let projectTitle = ''
+	let projectDescription = ''
 
 	// let scrollPercentage = --scroll
 
@@ -109,19 +114,35 @@
 	function setTravelSign(a: boolean) {
 		travelSignVisible = a
 	}
+
+	function openProjectPopup(title: string, description: string) {
+		projectTitle = title
+		projectDescription = description
+		projectPopupIsOpen = true
+		console.log('Project Popup opened')
+	}
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div
 	id="pageWrapper"
-	class="p-4 md:p-8 w-full
+	class="pl-4 pr-4 -mb-3 md:pl-8 md:pr-8 w-full
  /*sm:bg-accent /*md:bg-[#eeafaf] /*lg:bg-secondary /*xl:bg-primary"
 >
-	<Popup show={popupIsOpen} on:close={closeCV}>
+	<!-- CV Popup -->
+	<Popup title="CV" show={popupIsOpen} on:close={closeCV}>
 		<CV />
 	</Popup>
 
+	<!-- Project Card Popup -->
+	<Popup title={projectTitle} show={projectPopupIsOpen} on:close={closeCV}>
+		<p>
+			lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+			ipsum
+		</p>
+		<p>{projectDescription}</p>
+	</Popup>
 	<div class="h-screen /*bg-secondary">
 		<!-- SCROLL POSITION TEST -->
 		<!-- <div class="w-4 h-4 bg-primary" use:scrollPosition > 
@@ -401,7 +422,8 @@
 					projectColor: 'bg-[#ff8d93]',
 					icons: ['react', 'ts', 'js'],
 					demoSrc: 'src/images/khIntro.gif',
-					year: '2022-2023'
+					year: '2022-2023',
+					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
 				}
 			]}
 			title="Work"
@@ -429,7 +451,8 @@
 					demoOrientation: 'landscape',
 					demoSrc: 'src/images/movieAppDemo.gif',
 					projectColor: 'bg-[#DFA67B]',
-					year: '2022'
+					year: '2022',
+					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
 				},
 				{
 					title: 'Rock Paper Scrissors',
@@ -489,6 +512,9 @@
 			]}
 		/> -->
 	</section>
+	<Divider size={96} />
+	<Footer />
+	<Divider />
 </div>
 
 <style>

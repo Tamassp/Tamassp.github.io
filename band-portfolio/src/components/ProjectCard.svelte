@@ -32,32 +32,33 @@
 		mdOffset = 100
 		smOffset = 0
 	}
+
+	export let onCardClick = (): any => {
+		console.log('onCardClick')
+	}
 </script>
 
 <Card
+	{onCardClick}
 	class="relative {cardWidth} p-0 /*sm:min-w-min shadow-md {$$props.class} flex flex-col justify-between h-auto"
 >
 	{#if demoOrientation == 'portrait'}
-		<div class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[180px] aspect-[9/16] ">
+		<div class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[180px] aspect-[9/16]">
 			<img src={demoSrc} alt="thumbnail gif" class="shadow-md" />
 		</div>
 	{:else if demoOrientation == 'square'}
-		<div
-			class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[112px] sm:h-[136px] aspect-[1/1] "
-		>
+		<div class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[112px] sm:h-[136px] aspect-[1/1]">
 			<img src={demoSrc} alt="thumbnail gif" class="shadow-md" />
 		</div>
 	{:else}
-		<div
-			class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[80px] sm:h-[100px] aspect-[16/9] "
-		>
+		<div class="absolute -top-3 -right-3 sm:-top-8 sm:-right-8 h-[80px] sm:h-[100px] aspect-[16/9]">
 			<img src={demoSrc} alt="thumbnail gif" class="shadow-md" />
 		</div>
 	{/if}
 	<div>
 		<div class="w-full h-2 {projectColor}" />
 		<div
-			class="flex flex-col justify-center p-4 pt-8 md:p-8 md:pb-4 
+			class="flex flex-col justify-center p-4 pt-8 md:p-8 md:pb-4
 		/*max-w-[calc(100%-{(portraitHeight * 9) / 16}px)]
 		/*max-w-[calc(100%-50px)]"
 		>
@@ -65,7 +66,6 @@
 				{title}
 				{subTitle}
 				{bulletPoints}
-				{description}
 				titleStyles="max-w-[calc(100%-128px)] md:max-w-[calc(100%-128px)] "
 				subTitleStyles="max-w-[calc(100%-{smOffset}px)] {demoOrientation == 'portrait'
 					? 'md:max-w-[calc(100%-64px)]'
