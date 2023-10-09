@@ -165,8 +165,8 @@
 		font-family: 'Homenaje';
 	}
 	:global(body) {
-		background-color: rgb(0, 0, 0);
-		color: white;
+		/* background-color: rgb(0, 0, 0);
+		color: white; */
 		display: flex;
 		justify-content: center;
 	}

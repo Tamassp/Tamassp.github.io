@@ -27,6 +27,7 @@
 	import DottedLineLeftSmall from '../../components/DottedLineLeftSmall.svelte'
 	import Arrow from '../../icons/Arrow.svelte'
 	import Footer from '../../components/Footer.svelte'
+	import StorySection from '../../components/StorySection.svelte'
 
 	export let data: PageData
 
@@ -247,57 +248,54 @@
 	</div>
 	<!-- </section> -->
 
-	<section class="/*full-screen-section full-width-section p-1 /*flex /*flex-col justify-center">
-		<div class="/*flex /*flex-wrap">
-			<SubHeader
-				class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline bg-slate-500 text-cyan-300"
-				>I started learning programming in</SubHeader
-			>
-			<div>
-				<div
-					use:viewport
-					on:enterViewport={() => {
-						highSchool = true
-						highSchoolDescription = true
-					}}
-					on:exitViewport={() => {}}
-				/>
-				<div class="w-full h-16">
-					{#if highSchool}
-						<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] transitionFromRight">
-							<Title class="inline bg-slate-500 text-cyan-300">high school</Title>
+	<StorySection>
+		<SubHeader class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline"
+			>I started learning programming in</SubHeader
+		>
+		<div>
+			<div
+				use:viewport
+				on:enterViewport={() => {
+					highSchool = true
+					highSchoolDescription = true
+				}}
+				on:exitViewport={() => {}}
+			/>
+			<div class="w-full h-16">
+				{#if highSchool}
+					<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] transitionFromRight">
+						<Title class="inline">high school</Title>
+					</div>
+				{/if}
+			</div>
+			<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
+				<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
+					{#if highSchoolDescription}
+						<div class="transitionFromLeft">
+							<Description
+								class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20
+									"
+							>
+								We were introduced to C++ first, where I could learn the basics of programming and I
+								could practice creating algorithms. Througout my studies I've participated in extra
+								courses in software developement where we were creating apps in HTML/CSS, Java and
+								Android studio In the last year we were working with C#
+							</Description>
 						</div>
 					{/if}
 				</div>
-				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
-					<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
-						{#if highSchoolDescription}
-							<div class="transitionFromLeft">
-								<Description
-									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20
-									"
-								>
-									We were introduced to C++ first, where I could learn the basics of programming and
-									I could practice creating algorithms. Througout my studies I've participated in
-									extra courses in software developement where we were creating apps in HTML/CSS,
-									Java and Android studio In the last year we were working with C#
-								</Description>
-							</div>
-						{/if}
-					</div>
-					<div
-						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
-					>
-						<img
-							src="src/images/gimi.png"
-							alt="gimi"
-							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
-						/>
-					</div>
+				<div
+					class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
+				>
+					<img
+						src="src/images/gimi.png"
+						alt="gimi"
+						class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
+					/>
 				</div>
 			</div>
 		</div>
-	</section>
+	</StorySection>
 	<section class="/*min-h-screen /*full-screen-section bg-green-300 flex flex-col justify-center">
 		<div id="#section1" class={section1Animation ? 'section-1' : ''} />
 		<div class="section-1-animation" />
@@ -307,132 +305,118 @@
 			<DottedLineLeftSmall id="22" inverted />
 		{/if}
 	</section>
-	<section class="/*full-screen-section p-1 flex flex-col justify-center">
-		<div class="/*flex /*flex-wrap">
-			<SubHeader
-				class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
-				>I studied Software Engineering at</SubHeader
-			>
-			<div
-				use:viewport
-				on:enterViewport={() => {
-					university = true
-					// universityDescription = true
-				}}
-				on:exitViewport={() => {}}
-			/>
-			<div>
-				<div class="flex flex-wrap">
+	<StorySection>
+		<SubHeader
+			class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+			>I studied Software Engineering at</SubHeader
+		>
+		<div
+			use:viewport
+			on:enterViewport={() => {
+				university = true
+				// universityDescription = true
+			}}
+			on:exitViewport={() => {}}
+		/>
+		<div>
+			<div class="/*flex /*flex-wrap w-full h-16">
+				{#if university}
+					<div class="absolute ml-[5%] sm:ml-[15%] md:ml-[30%] inline transitionFromLeft">
+						<Title class="inline">VIA University College</Title>
+					</div>
+				{/if}
+			</div>
+			<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
+				<div
+					class="flex flex-row justify-start order-2 col-span-1 lg:relative lg:justify-normal lg:order-1"
+				>
+					<img
+						src="src/images/via.png"
+						alt="via"
+						class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
+					/>
+				</div>
+				<div class="flex flex-row order-2 lg:justify-end lg:order-1">
 					{#if university}
-						<div class="absolute ml-[5%] sm:ml-[15%] md:ml-[30%] inline transitionFromLeft">
-							<Title class=" /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
-								>VIA University College</Title
-							>
+						<div class={innerWidth > 1024 ? 'transitionFromRight' : 'transitionFromLeft'}>
+							<Description
+								class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
+								>We were introduced to C++ first, where I could learn the basics of programming and
+								I could practice creating algorithms. Througout my studies I've participated in
+								extra courses in software developement where we were creating apps in HTML/CSS, Java
+								and Android studio In the last year we were working with C#
+							</Description>
 						</div>
 					{/if}
 				</div>
-				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
-					<div
-						class="flex flex-row justify-start order-2 col-span-1 lg:relative lg:justify-normal lg:order-1"
-					>
-						<img
-							src="src/images/via.png"
-							alt="via"
-							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
-						/>
-					</div>
-					<div class="flex flex-row justify-end order-2 lg:order-1">
-						{#if university}
-							<div class="transitionFromRight">
-								<Description
-									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
-									>We were introduced to C++ first, where I could learn the basics of programming
-									and I could practice creating algorithms. Througout my studies I've participated
-									in extra courses in software developement where we were creating apps in HTML/CSS,
-									Java and Android studio In the last year we were working with C#
-								</Description>
-							</div>
-						{/if}
-					</div>
-				</div>
 			</div>
 		</div>
-	</section>
+	</StorySection>
 	{#if innerWidth > 1024}
 		<DottedLineLeft id="3" />
 	{:else}
 		<DottedLineLeftSmall id="33" />
 	{/if}
-	<section class="/*full-screen-section full-width-section p-1 /*flex /*flex-col justify-center">
-		<div class="/*flex /*flex-wrap">
-			<div class="balancedText" />
-			<SubHeader
-				class="balancedText sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline bg-slate-500 text-cyan-300 "
-				>I had my internship and student job at</SubHeader
-			>
-			<div
-				use:viewport
-				on:enterViewport={() => {
-					work = true
-					// universityDescription = true
-				}}
-				on:exitViewport={() => {}}
-			/>
-			<div>
-				<div class="/*flex /*flex-wrap">
+	<StorySection>
+		<SubHeader
+			class="/*balancedText sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline bg-slate-500 text-cyan-300 "
+			>I had my internship and student job at</SubHeader
+		>
+		<div
+			use:viewport
+			on:enterViewport={() => {
+				work = true
+			}}
+			on:exitViewport={() => {}}
+		/>
+		<div>
+			<div class="w-full h-16">
+				{#if work}
+					<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] inline transitionFromRight">
+						<Title>Keyhole</Title>
+					</div>
+				{/if}
+			</div>
+			<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
+				<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
 					{#if work}
-						<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] inline transitionFromRight">
-							<Title class="/*bg-slate-500 /*text-cyan-300">Keyhole</Title>
+						<div class="transitionFromLeft">
+							<Description
+								class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
+							>
+								We were introduced to C++ first, where I could learn the basics of programming and I
+								could practice creating algorithms. Througout my studies I've participated in extra
+								courses in software developement where we were creating apps in HTML/CSS, Java and
+								Android studio In the last year we were working with C#
+							</Description>
 						</div>
 					{/if}
 				</div>
-				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
-					<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
-						{#if work}
-							<div class="transitionFromLeft">
-								<Description
-									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
-								>
-									We were introduced to C++ first, where I could learn the basics of programming and
-									I could practice creating algorithms. Througout my studies I've participated in
-									extra courses in software developement where we were creating apps in HTML/CSS,
-									Java and Android studio In the last year we were working with C#
-								</Description>
-							</div>
-						{/if}
-					</div>
-					<div
-						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
-					>
-						<!-- <img
-							src="src/images/viaUpperBig.png"
-							alt="viaUpperBig"
-							class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10 "
-						/> -->
-						<!-- <img
-							src="src/images/viaUpper.png"
-							alt="viaUpper"
-							class=" mr-0 lg:w-auto min-h-full max-h-[348px] w-auto object-fit z-10 "
-						/> -->
-						<div class="relative flex justify-end w-[70%]">
-							<div
-								transition:fade={{ delay: 600, duration: 300 }}
-								class="absolute top-[30%] left-[68%] flex justify-between"
-							>
-								<Arrow class="scale-75 md:scale-100 " />
+				<div
+					class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
+				>
+					<div class="relative flex justify-end /*w-[70%]">
+						<div
+							transition:fade={{ delay: 600, duration: 300 }}
+							class="absolute top-[30%] left-[68%] flex justify-between"
+						>
+							<Arrow class="scale-75 md:scale-100 " />
+							{#if innerWidth > 1024}
 								<Description small>This window here</Description>
-							</div>
-							<img
-								src="src/images/via.png"
-								alt="via"
-								class="z-10 h-auto min-h-full mr-0 lg:w-auto object-fit"
-							/>
+							{:else}
+								<Description small>Here</Description>
+							{/if}
 						</div>
+						<img
+							src="src/images/via.png"
+							alt="via"
+							class="z-10 w-[70%] h-auto min-h-full mr-0 lg:w-auto object-fit"
+						/>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</StorySection>
 	{#if innerWidth > 1024}
 		<DottedLineLeft id="4" inverted />
 	{:else}

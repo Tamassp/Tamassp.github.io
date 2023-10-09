@@ -6,6 +6,9 @@
 					NODE_ENV: 'development' // or 'production'
 				}
 			}
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0)
+		}
 	</script>
 	<head>
 		<meta charset="utf-8" />
