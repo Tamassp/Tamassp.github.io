@@ -9,6 +9,7 @@
 		demoSrc?: string
 		description?: string
 		icons?: string[]
+		inProgress?: boolean
 		projectColor?: string
 		subTitle: string
 		title: string
@@ -30,15 +31,15 @@
 		<div class="flex pt-2 /*-m-2 -ml-6 -mr-6 overflow-x-auto sm:-ml-8 sm:-mr-0">
 			{#each projects as project, i}
 				<ProjectCard
-					class="mt-6 mb-6 ml-6 mr-6 sm:ml-8"
+					class="mt-6 ml-6 mr-6 mb-9 sm:ml-8"
 					{...project}
 					onCardClick={onProjectCardClick(project.title, project.description || '')}
 				/>
 			{/each}
 		</div>
 		{#if innerWidth > 640}
-			<div class="absolute right-0 w-16 pointer-events-none inset-y-8 fader" />
-			<div class="absolute w-16 rotate-180 pointer-events-none -left-8 inset-y-8 fader" />
+			<div class="absolute right-0 w-16 pointer-events-none inset-y-5 fader" />
+			<div class="absolute w-16 rotate-180 pointer-events-none -left-8 inset-y-5 fader" />
 		{/if}
 	</div>
 {/if}

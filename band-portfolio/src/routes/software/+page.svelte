@@ -174,7 +174,7 @@
 		</div>
 	</div>
 
-	<section class="full-width-section -mt-[0vh] mb-32 /*bg-accent">
+	<section class="/*full-screen-section full-width-section -mt-[0vh] mb-32 /*bg-accent">
 		{#if visible}
 			<div
 				class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} 
@@ -434,9 +434,9 @@
 						'React web app for tenants',
 						'React web app for landlords'
 					],
-					projectColor: 'bg-[#ff8d93]',
-					icons: ['react', 'ts', 'js'],
+					projectColor: '#ff8d93',
 					demoSrc: 'src/images/khIntro.gif',
+					icons: ['react', 'ts', 'js'],
 					year: '2022-2023',
 					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
 				}
@@ -448,43 +448,53 @@
 			{innerWidth}
 			projects={[
 				{
-					title: 'BPR Dashboard',
-					subTitle: 'A solution for visualizing datapoints coming from different companies',
 					bulletPoints: [
 						'React web app for datapoint management and visaualization',
 						'.NET API for data processing'
 					],
 					demoOrientation: 'landscape',
 					demoSrc: 'src/images/bprDemo.gif',
-					projectColor: 'bg-[#663399]',
+					icons: ['react', 'ts', 'js', 'c#'],
+					projectColor: '#663399',
+					subTitle: 'A solution for visualizing datapoints coming from different companies',
+					title: 'BPR Dashboard',
 					year: '2023'
 				},
 				{
-					title: 'Movie Info App',
-					subTitle: 'An imdb-like app for searching movies, actors and tv shows',
-					bulletPoints: ['Blazor Web-Assembly app', 'Using TMDB API', 'Hosted in Azure'],
+					bulletPoints: [
+						'Blazor Web-Assembly app',
+						'Using TMDB API',
+						'Hosted in Azure',
+						'GitHub Actions'
+					],
 					demoOrientation: 'landscape',
 					demoSrc: 'src/images/movieAppDemo.gif',
-					projectColor: 'bg-[#DFA67B]',
-					year: '2022',
-					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-				},
-				{
-					title: 'Rock Paper Scrissors',
-					subTitle: 'A VR Game created where the player has to fight a cactus',
-					bulletPoints: ['Unity', 'Oculus Interaction SDK', 'OVRCameraRig'],
-					projectColor: 'bg-[#79AC78]',
-					demoOrientation: 'square',
-					demoSrc: 'src/images/rockPaperDemo.gif',
+					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+					icons: ['blazor', 'c#', 'azure'],
+					projectColor: '#DFA67B',
+					subTitle: 'An imdb-like app for searching movies, actors and tv shows',
+					title: 'Movie Info App',
 					year: '2022'
 				},
 				{
-					title: 'Chess Strategy',
-					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
+					bulletPoints: ['Unity', 'Oculus Interaction SDK', 'OVRCameraRig'],
+					demoOrientation: 'square',
+					demoSrc: 'src/images/rockPaperDemo.gif',
+					icons: ['unity', 'oculus', 'c#'],
+					projectColor: '#79AC78',
+					subTitle: 'A VR Game created where the player has to fight a cactus',
+					title: 'Rock Paper Scrissors',
+					year: '2022'
+				},
+				{
 					bulletPoints: ['Physics for projectiles', 'AI pathfinding', 'Animations, shaders etc.'],
-					projectColor: 'bg-[#666666]',
 					demoOrientation: 'landscape',
 					demoSrc: 'src/images/chessStrategyDemo.gif',
+					icons: ['unity', 'c#'],
+					inProgress: true,
+					projectColor: '#666666',
+					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
+					title: 'Chess Strategy',
 					year: '2023'
 				}
 			]}
@@ -496,14 +506,20 @@
 			{innerWidth}
 			projects={[
 				{
-					title: 'Portfolio Website',
-					subTitle: 'Implemented new features and mantained existing ones in a:',
 					bulletPoints: [
-						'React Native mobile app',
-						'React web app for tenants',
-						'React web app for landlords'
+						'Component Based Development',
+						'Learning a new framework (Svelte)',
+						'Working with SVGs',
+						'Hosting on GitHub Pages'
 					],
-					projectColor: 'bg-primary'
+					demoOrientation: 'landscape',
+					demoSrc: 'src/images/chessStrategyDemo.gif',
+					icons: ['svelte', 'ts', 'js'],
+					inProgress: true,
+					projectColor: '#176178',
+					subTitle: 'Created for presenting my projects and experience',
+					title: 'Portfolio Website',
+					year: '2023'
 				}
 			]}
 			title="Hobby"
