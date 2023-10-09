@@ -45,7 +45,9 @@
 	let highSchoolDescription = false
 	let highSchoolImg = false
 	let university = false
+	let universityDescription = false
 	let work = false
+	let workDescription = false
 
 	let projectTitle = ''
 	let projectDescription = ''
@@ -311,12 +313,23 @@
 				class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
 				>I studied Software Engineering at</SubHeader
 			>
+			<div
+				use:viewport
+				on:enterViewport={() => {
+					university = true
+					// universityDescription = true
+				}}
+				on:exitViewport={() => {}}
+			/>
 			<div>
 				<div class="flex flex-wrap">
-					<Title
-						class="ml-[5%] sm:ml-[15%] md:ml-[30%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
-						>VIA University College</Title
-					>
+					{#if university}
+						<div class="absolute ml-[5%] sm:ml-[15%] md:ml-[30%] inline transitionFromLeft">
+							<Title class=" /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+								>VIA University College</Title
+							>
+						</div>
+					{/if}
 				</div>
 				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
 					<div
@@ -329,13 +342,17 @@
 						/>
 					</div>
 					<div class="flex flex-row justify-end order-2 lg:order-1">
-						<Description
-							class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
-							>We were introduced to C++ first, where I could learn the basics of programming and I
-							could practice creating algorithms. Througout my studies I've participated in extra
-							courses in software developement where we were creating apps in HTML/CSS, Java and
-							Android studio In the last year we were working with C#
-						</Description>
+						{#if university}
+							<div class="transitionFromRight">
+								<Description
+									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
+									>We were introduced to C++ first, where I could learn the basics of programming
+									and I could practice creating algorithms. Througout my studies I've participated
+									in extra courses in software developement where we were creating apps in HTML/CSS,
+									Java and Android studio In the last year we were working with C#
+								</Description>
+							</div>
+						{/if}
 					</div>
 				</div>
 			</div>
@@ -353,22 +370,36 @@
 				class="balancedText sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline bg-slate-500 text-cyan-300 "
 				>I had my internship and student job at</SubHeader
 			>
+			<div
+				use:viewport
+				on:enterViewport={() => {
+					work = true
+					// universityDescription = true
+				}}
+				on:exitViewport={() => {}}
+			/>
 			<div>
 				<div class="/*flex /*flex-wrap">
-					<Title class="ml-[15%] sm:ml-[35%] md:ml-[50%] inline bg-slate-500 text-cyan-300"
-						>Keyhole</Title
-					>
+					{#if work}
+						<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] inline transitionFromRight">
+							<Title class="/*bg-slate-500 /*text-cyan-300">Keyhole</Title>
+						</div>
+					{/if}
 				</div>
 				<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
 					<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
-						<Description
-							class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
-						>
-							We were introduced to C++ first, where I could learn the basics of programming and I
-							could practice creating algorithms. Througout my studies I've participated in extra
-							courses in software developement where we were creating apps in HTML/CSS, Java and
-							Android studio In the last year we were working with C#
-						</Description>
+						{#if work}
+							<div class="transitionFromLeft">
+								<Description
+									class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
+								>
+									We were introduced to C++ first, where I could learn the basics of programming and
+									I could practice creating algorithms. Througout my studies I've participated in
+									extra courses in software developement where we were creating apps in HTML/CSS,
+									Java and Android studio In the last year we were working with C#
+								</Description>
+							</div>
+						{/if}
 					</div>
 					<div
 						class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
