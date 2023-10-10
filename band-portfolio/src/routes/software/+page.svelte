@@ -174,7 +174,7 @@
 		</div>
 	</div>
 
-	<section class="/*full-screen-section full-width-section -mt-[0vh] mb-32 /*bg-accent">
+	<section class="full-screen-section /*full-width-section -mt-[0vh] mb-32 /*bg-accent">
 		{#if visible}
 			<div
 				class=" {isProfileExpanded ? 'animate-in' : 'animate-out'} 
@@ -296,7 +296,7 @@
 			</div>
 		</div>
 	</StorySection>
-	<section class="/*min-h-screen /*full-screen-section bg-green-300 flex flex-col justify-center">
+	<section class="/*min-h-screen /*full-screen-section flex flex-col justify-center">
 		<div id="#section1" class={section1Animation ? 'section-1' : ''} />
 		<div class="section-1-animation" />
 		{#if innerWidth > 1024}
@@ -306,8 +306,7 @@
 		{/if}
 	</section>
 	<StorySection>
-		<SubHeader
-			class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline /*drop-shadow-[0_2px_1px_rgba(0,0,0,0.3)]"
+		<SubHeader class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline"
 			>I studied Software Engineering at</SubHeader
 		>
 		<div
@@ -319,7 +318,7 @@
 			on:exitViewport={() => {}}
 		/>
 		<div>
-			<div class="/*flex /*flex-wrap w-full h-16">
+			<div class="w-full h-16">
 				{#if university}
 					<div class="absolute ml-[5%] sm:ml-[15%] md:ml-[30%] inline transitionFromLeft">
 						<Title class="inline">VIA University College</Title>
@@ -338,7 +337,7 @@
 				</div>
 				<div class="flex flex-row order-2 lg:justify-center lg:order-1">
 					{#if university}
-						<div class={innerWidth > 1024 ? 'transitionFromRight' : 'transitionFromLeft'}>
+						<div class={innerWidth > 1024 ? 'transitionFromRight' : '/*transitionFromLeft'}>
 							<Description
 								class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
 								>Here I dove deeper in the object oriented world. We used several design patterns
@@ -498,6 +497,21 @@
 					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
 					title: 'Chess Strategy',
 					year: '2023'
+				},
+				{
+					bulletPoints: [
+						'Android mobile app',
+						'RESTful API calls over HTTP',
+						'Microsoft SQL Server Database',
+						'Loriot Network Gateway'
+					],
+					demoOrientation: 'portrait',
+					demoSrc: 'src/images/AndroidDemo.gif',
+					icons: ['android', 'springboot', 'java'],
+					projectColor: '#006400 ',
+					subTitle: 'Monitoring and controlling a greenhouse via:',
+					title: 'Automated Greenhouse',
+					year: '2023'
 				}
 			]}
 			title="University"
@@ -514,12 +528,28 @@
 						'Hosting on GitHub Pages'
 					],
 					demoOrientation: 'landscape',
-					demoSrc: 'src/images/chessStrategyDemo.gif',
+					demoSrc: 'src/images/PortfolioDemo.gif',
 					icons: ['svelte', 'ts', 'js'],
 					inProgress: true,
 					projectColor: '#176178',
 					subTitle: 'Created for presenting my projects and experience',
 					title: 'Portfolio Website',
+					year: '2023'
+				},
+				{
+					bulletPoints: [
+						'Component Based Development',
+						'Learning a new framework (Svelte)',
+						'Working with SVGs',
+						'Hosting on GitHub Pages'
+					],
+					demoOrientation: 'landscape',
+					demoSrc: 'src/images/BandPortfolio.gif',
+					icons: ['svelte', 'ts', 'js'],
+					inProgress: true,
+					projectColor: '#8B0000',
+					subTitle: 'Created to present my band and our music',
+					title: 'Band Portfolio',
 					year: '2023'
 				}
 			]}

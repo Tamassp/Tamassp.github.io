@@ -14,6 +14,9 @@
 	import UnityIcon from '../icons/UnityIcon.svelte'
 	import OculusIcon from '../icons/OculusIcon.svelte'
 	import SvelteIcon from '../icons/SvelteIcon.svelte'
+	import JavaIcon from '../icons/JavaIcon.svelte'
+	import AndroidIcon from '../icons/AndroidIcon.svelte'
+	import SpringBootIcon from '../icons/SpringBootIcon.svelte'
 
 	const cardWidth = 'max-w-xs min-w-[75vw] sm:min-w-[320px] md:min-w-[356px]'
 	const portraitHeight = 200
@@ -68,7 +71,7 @@
 			<img src={demoSrc} alt="thumbnail gif" class="shadow-md" />
 		</div>
 	{/if}
-	<div style="--theme-color: {projectColor}">
+	<div style="--theme-color: {projectColor}" class="flex flex-col justify-between h-full">
 		<div>
 			<div class="w-full h-2 backgroundColor" />
 			<div
@@ -121,6 +124,15 @@
 						{/if}
 						{#if icon == 'svelte'}
 							<SvelteIcon />
+						{/if}
+						{#if icon == 'java'}
+							<JavaIcon />
+						{/if}
+						{#if icon == 'android'}
+							<AndroidIcon />
+						{/if}
+						{#if icon == 'springboot'}
+							<SpringBootIcon />
 						{/if}
 					{/each}
 				{/if}

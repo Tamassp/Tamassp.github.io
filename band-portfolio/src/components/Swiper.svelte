@@ -28,7 +28,7 @@
 {#if projects.length > 0}
 	<div class="relative wrapper">
 		<Header>{title}</Header>
-		<div class="flex pt-2 /*-m-2 -ml-6 -mr-6 overflow-x-auto sm:-ml-8 sm:-mr-0">
+		<div class="flex pt-2 /*-m-2 -ml-6 -mr-6 overflow-x-auto sm:-ml-8 sm:-mr-0 pr-2">
 			{#each projects as project, i}
 				<ProjectCard
 					class="mt-6 ml-6 mr-6 mb-9 sm:ml-8"

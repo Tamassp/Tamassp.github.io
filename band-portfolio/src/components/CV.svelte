@@ -1,4 +1,7 @@
 <script>
+	import FootballIcon from '../icons/FootballIcon.svelte'
+	import MountainIcon from '../icons/MountainIcon.svelte'
+	import PianoIcon from '../icons/PianoIcon.svelte'
 	import Divider from './Divider.svelte'
 	import Header from './Header.svelte'
 	import TitleDescription from './TitleDescription.svelte'
@@ -32,9 +35,14 @@
 			title="Education"
 			subTitle="VIA University College (Software Engineering)"
 			bulletPoints={['Group Projects', 'Internship', 'Interactive Media']}
-			description="More details in projects"
+			description="More details in projects section"
 		/>
 		<Divider />
 		<Header>Interests</Header>
+		<div class="flex flex-row items-center gap-2 mt-4">
+			<PianoIcon />
+			<FootballIcon />
+			<MountainIcon />
+		</div>
 	</div>
 </div>
