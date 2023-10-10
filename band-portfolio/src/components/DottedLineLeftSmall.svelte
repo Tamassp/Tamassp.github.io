@@ -87,7 +87,7 @@
 			id={elmentID}
 			d="M 345,408 Q 320,256 172,204 25,150 0,0"
 			stroke="white"
-			stroke-width="5"
+			stroke-width="7"
 			stroke-linejoin="round"
 			stroke-linecap="round"
 			pathLength="1"

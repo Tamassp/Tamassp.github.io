@@ -38,8 +38,8 @@
 			{/each}
 		</div>
 		{#if innerWidth > 640}
-			<div class="absolute right-0 w-16 pointer-events-none inset-y-5 fader" />
-			<div class="absolute w-16 rotate-180 pointer-events-none -left-8 inset-y-5 fader" />
+			<div class="absolute right-0 w-16 pointer-events-none bottom-5 top-8 fader" />
+			<div class="absolute w-16 rotate-180 pointer-events-none -left-8 bottom-5 top-8 fader" />
 		{/if}
 	</div>
 {/if}

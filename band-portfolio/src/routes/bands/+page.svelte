@@ -1,6 +1,6 @@
 <script>
-	import Youtube from 'svelte-youtube-embed'
-	import { AudioPlayer } from 'svelte-mp3'
+	// import Youtube from 'svelte-youtube-embed'
+	// import { AudioPlayer } from 'svelte-mp3'
 	import Divider from '../../components/Divider.svelte'
 	import Button from '../../components/Button.svelte'
 	import TitleDescriptionCard from '../../components/TitleDescriptionCard.svelte'
@@ -48,10 +48,10 @@
 	<Divider />
 	<h1>Portfolio</h1>
 	<!-- <div class="video"> -->
-	<Youtube id="9Vo4_XfPS5U" />
+	<!-- <Youtube id="9Vo4_XfPS5U" /> -->
 	<!-- </div> -->
 	<!-- <div class="video"> -->
-	<Youtube id="dgZi5Qi400A" />
+	<!-- <Youtube id="dgZi5Qi400A" /> -->
 	<!-- </div> -->
 	<!-- <AudioPlayer  url={recording} bind:controller={controller} /> -->
 
