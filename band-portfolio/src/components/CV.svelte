@@ -9,7 +9,14 @@
 	<div>
 		<TitleDescription
 			title="Skills"
-			bulletPoints={['React and React Native', 'Vue', 'JavaScript and TypeScript', 'GraphQL']}
+			bulletPoints={[
+				'React / React Native / Vue',
+				'JavaScript / TypeScript',
+				'.NET C# / Java',
+				'GraphQL / MongoDB / SQL',
+				'Azure / GitHub Actions',
+				'Unity'
+			]}
 		/>
 		<Divider />
 		<TitleDescription

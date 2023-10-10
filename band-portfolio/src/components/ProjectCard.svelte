@@ -130,7 +130,9 @@
 			</div>
 		</div>
 		{#if inProgress}
-			<div class="absolute right-0 p-1 text-white rounded-bl-lg -bottom-6 backgroundColor">
+			<div
+				class="absolute right-0 p-1 text-white rounded-bl-lg -bottom-6 md:-bottom-7 backgroundColor"
+			>
 				<Description small>In Progress</Description>
 			</div>
 		{/if}

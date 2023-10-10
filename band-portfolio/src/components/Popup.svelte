@@ -26,8 +26,11 @@
 	// Update the reactive variable when the popup is active
 	$: {
 		if (show) {
-			preventScrolling = true
-			document.body.style.width = `${innerWidth}px`
+			// preventScrolling = true
+			// document.body.style.width = `${innerWidth}px`
+		} else {
+			// preventScrolling = false
+			// document.body.style.width = 'auto'
 		}
 	}
 

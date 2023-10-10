@@ -86,7 +86,7 @@
 		// var myPath = document.getElementById("#arrow1");
 		// var length = myPath.getTotalLength();
 		// console.log("LENGHT" + length);
-	}, 1000)
+	}, 300)
 
 	function onProfileCardClick() {
 		isProfileExpanded = true
@@ -269,7 +269,7 @@
 				{/if}
 			</div>
 			<div class="relative grid /*md:gap-16 lg:grid-cols-2 w-full">
-				<div class="flex flex-row order-2 lg:order-1 lg:justify-end">
+				<div class="flex flex-row order-2 lg:order-1 lg:justify-center">
 					{#if highSchoolDescription}
 						<div class="transitionFromLeft">
 							<Description
@@ -279,7 +279,7 @@
 								We were introduced to C++ first, where I could learn the basics of programming and I
 								could practice creating algorithms. Througout my studies I've participated in extra
 								courses in software developement where we were creating apps in HTML/CSS, Java and
-								Android studio In the last year we were working with C#
+								Android studio. In the final year, our focus shifted to working extensively with C#.
 							</Description>
 						</div>
 					{/if}
@@ -336,15 +336,16 @@
 						class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
 					/>
 				</div>
-				<div class="flex flex-row order-2 lg:justify-end lg:order-1">
+				<div class="flex flex-row order-2 lg:justify-center lg:order-1">
 					{#if university}
 						<div class={innerWidth > 1024 ? 'transitionFromRight' : 'transitionFromLeft'}>
 							<Description
 								class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-l from-90% from-white to-100% pl-8 z-20"
-								>We were introduced to C++ first, where I could learn the basics of programming and
-								I could practice creating algorithms. Througout my studies I've participated in
-								extra courses in software developement where we were creating apps in HTML/CSS, Java
-								and Android studio In the last year we were working with C#
+								>Here I dove deeper in the object oriented world. We used several design patterns
+								and agile methodologies. Thanks to the semester projects, we were able to experience
+								working in international teams. I chose the interactive media specification, that
+								allowed me to take extra courses in frontend development, UX/UI interactions and
+								VR/AR.
 							</Description>
 						</div>
 					{/if}
@@ -384,10 +385,11 @@
 							<Description
 								class=" text-justify align-middle  col-span-1 mt-4 lg:mt-16 bg-gradient-to-r from-90% from-white to-100% pr-8 z-20"
 							>
-								We were introduced to C++ first, where I could learn the basics of programming and I
-								could practice creating algorithms. Througout my studies I've participated in extra
-								courses in software developement where we were creating apps in HTML/CSS, Java and
-								Android studio In the last year we were working with C#
+								I had a great opportunity to apply my skills in a practical setting during my recent
+								student job. Collaborating closely with the backend team, we developed and evaluated
+								frontend functionalities for both mobile and web applications. Besides the technical
+								aspects, this experience taught me valuable lessons in teamwork, asynchronous task
+								management, and taking ownership of hotfixes and releases.
 							</Description>
 						</div>
 					{/if}
@@ -492,7 +494,7 @@
 					demoSrc: 'src/images/chessStrategyDemo.gif',
 					icons: ['unity', 'c#'],
 					inProgress: true,
-					projectColor: '#666666',
+					projectColor: '#645b37',
 					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
 					title: 'Chess Strategy',
 					year: '2023'
@@ -500,7 +502,6 @@
 			]}
 			title="University"
 		/>
-
 		<Divider />
 		<Swiper
 			{innerWidth}
@@ -524,24 +525,6 @@
 			]}
 			title="Hobby"
 		/>
-		<!-- <ProjectCard
-			title="Dashboard App"
-			subTitle="Implemented new features and mantained existing ones in a:"
-			bulletPoints={[
-				'React Native mobile app',
-				'React web app for tenants',
-				'React web app for landlords'
-			]}
-		/>
-		<ProjectCard
-			title="Dashboard App"
-			subTitle="Implemented new features and mantained existing ones in a:"
-			bulletPoints={[
-				'React Native mobile app',
-				'React web app for tenants',
-				'React web app for landlords'
-			]}
-		/> -->
 	</section>
 	<Divider size={96} />
 	<Footer />
