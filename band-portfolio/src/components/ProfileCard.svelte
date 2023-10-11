@@ -13,14 +13,17 @@
 
 <div class="{expanded ? 'expand' : 'shrink'} mt-16 mb-16">
 	<div>
-		<Card class=" {$$props.class} flex flex-col justify-end justify-items-end p-6 md:p-16 md:pt-0 ">
+		<Card class=" {$$props.class} flex flex-col justify-end justify-items-end p-6 md:p-14 md:pt-0 ">
 			<img
-				src="src/images/profilepic.jpg"
+				src="src/images/profilepic.PNG"
 				alt="Profile Pic"
-				class="z-10 w-32 h-32 mx-auto -mt-16 border shadow-xl aspect-square"
+				class="z-10 w-32 h-32 mx-auto -mt-12 /*border /*shadow-xl aspect-square"
 			/>
 			<div class="relative">
-				<div class="absolute z-0 w-32 h-32 border-2 -top-28 left-4" />
+				<div class="absolute z-0 w-32 h-32 border-2 -top-32 left-10 md:left-2 /*bg-primary" />
+			</div>
+			<div class="relative">
+				<div class="absolute left-6 md:-left-2 z-0 w-32 h-32 border-2 -top-36 bg-[#176178]" />
 			</div>
 			<h5 class="mt-8 text-2xl font-bold tracking-tight text-center text-background">{title}</h5>
 			<p class="font-normal text-center text-gray-700 dark:text-gray-400">{description}</p>
