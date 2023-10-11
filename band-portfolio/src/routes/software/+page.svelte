@@ -23,6 +23,7 @@
 	import Swiper from '../../components/Swiper.svelte'
 	import TypeScriptIcon from '../../icons/TypeScriptIcon.svelte'
 	import TravelSign from '../../components/TravelSign.svelte'
+	import TravelSignLeft from '../../components/TravelSignLeft.svelte'
 	import DottedLineLeft from '../../components/DottedLineLeft.svelte'
 	import DottedLineLeftSmall from '../../components/DottedLineLeftSmall.svelte'
 	import Arrow from '../../icons/Arrow.svelte'
@@ -113,9 +114,14 @@
 	}
 
 	let travelSignVisible = false
+	let projectSignVisible = false
 
 	function setTravelSign(a: boolean) {
 		travelSignVisible = a
+	}
+
+	function setProjectSign(a: boolean) {
+		projectSignVisible = a
 	}
 
 	function openProjectPopup(title: string, description: string) {
@@ -237,6 +243,7 @@
 		}}
 		on:exitViewport={() => {
 			console.log('exit DASHEDLINE')
+			// setTravelSign(false)
 		}}
 	>
 		{#if innerWidth > 1024}
@@ -418,6 +425,21 @@
 			</div>
 		</div>
 	</StorySection>
+	<Divider size={192} />
+	{#if projectSignVisible}
+		<TravelSignLeft text="Projects" />
+	{/if}
+
+	<div
+		use:viewport
+		on:enterViewport={() => {
+			console.log('enter DASHEDLINE')
+			setProjectSign(true)
+		}}
+		on:exitViewport={() => {
+			// setTravelSign(false)
+		}}
+	/>
 	{#if innerWidth > 1024}
 		<DottedLineLeft id="4" inverted />
 	{:else}
