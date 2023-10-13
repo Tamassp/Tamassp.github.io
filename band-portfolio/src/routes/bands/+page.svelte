@@ -29,13 +29,13 @@
 <svelte:window bind:innerWidth bind:innerHeight />
 
 <div class="pageContainer">
-	<div class="coverImage">
+	<!-- <div class="coverImage">
 		<img {src} alt="background" />
 	</div>
 
 	<h1 class="mainTitle">SwingBy</h1>
 
-	<!-- <p style="margin-top: 200px;">bla bla bla asdjkjashkdjashdkjhs</p> -->
+	
 	<div style="margin-top: 100px;" />
 	<TitleDescriptionCard />
 	<div style="margin-top: 32px;" />
@@ -46,7 +46,7 @@
 	<div style="margin-top: 120px;" />
 	<TitleDescriptionCard title="Our Style" right />
 	<Divider />
-	<h1>Portfolio</h1>
+	<h1>Portfolio</h1> -->
 	<!-- <div class="video"> -->
 	<!-- <Youtube id="9Vo4_XfPS5U" /> -->
 	<!-- </div> -->
