@@ -13,14 +13,16 @@ const config = {
 	// for more information about preprocessors
 	//preprocess: preprocess(),
 	preprocess: [vitePreprocess()],
-	trailingSlash: 'always',
 	kit: {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
 			fallback: null,
 			precompress: false,
-			strict: true
+			strict: true,
+			path: {
+				base: '/band-portfolio'
+			}
 		})
 	}
 	// kit: {
