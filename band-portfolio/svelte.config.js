@@ -21,7 +21,7 @@ const config = {
 			precompress: false,
 			strict: true,
 			path: {
-				base: '/band-portfolio'
+				base: 'Tamassp.github.io/band-portfolio'
 			}
 		})
 	}
