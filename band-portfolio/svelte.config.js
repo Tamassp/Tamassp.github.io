@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 //import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -6,13 +6,18 @@ import preprocess from 'svelte-preprocess';
 
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
+const dev = process.argv.includes('dev');
+
 const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	//preprocess: preprocess(),
 	preprocess: [vitePreprocess()],
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		path: {
+			base: dev ? '' : process.env.BASE_PATH || '/band-portfolio'
+		}
 	}
 	//preprocess: vitePreprocess()
 };
