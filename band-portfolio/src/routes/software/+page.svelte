@@ -45,40 +45,15 @@
 
 	let highSchool = false
 	let highSchoolDescription = false
-	let highSchoolImg = false
 	let university = false
-	let universityDescription = false
 	let work = false
-	let workDescription = false
 
 	let projectTitle = ''
 	let projectDescription = ''
 
-	// let scrollPercentage = --scroll
-
 	onMount(() => {
-		// setScrollVar()
-		// const observer = new IntersectionObserver((entries) => {
-		// 	// Loop over the entries
-		// 	entries.forEach((entry) => {
-		// 		// If the element is visible
-		// 		if (entry.isIntersecting) {
-		// 			// Add the animation class
-		// 			// entry.target.classList.add('section-1-animation');
-		// 			section1Animation = true
-		// 		}
-		// 	})
-		// })
-
-		// observer.observe(document.querySelector('section-1'))
-		// return () => {
-		// 	//cleanup
-		// 	removeScrollVar()
-		// }
-		// visible = true
 		console.log('visible: ' + visible)
 	})
-	//setScrollVar()
 
 	setTimeout(() => {
 		visible = true // After some delay, set showContent to true to show the content and trigger the transition
@@ -107,11 +82,11 @@
 	}
 
 	//ONLOAD
-	let waiting = 0
+	// let waiting = 0
 
-	const notifyLoaded = () => {
-		console.log('loaded!')
-	}
+	// const notifyLoaded = () => {
+	// 	console.log('loaded!')
+	// }
 
 	let travelSignVisible = false
 	let projectSignVisible = false
@@ -145,13 +120,13 @@
 	</Popup>
 
 	<!-- Project Card Popup -->
-	<Popup title={projectTitle} show={projectPopupIsOpen} on:close={closeCV}>
+	<!-- <Popup title={projectTitle} show={projectPopupIsOpen} on:close={closeCV}>
 		<p>
 			lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
 			ipsum
 		</p>
 		<p>{projectDescription}</p>
-	</Popup>
+	</Popup> -->
 	<div class="h-screen /*bg-secondary">
 		<!-- SCROLL POSITION TEST -->
 		<!-- <div class="w-4 h-4 bg-primary" use:scrollPosition > 
@@ -163,7 +138,6 @@
 				</div>
 
 				{#if visible}
-					<!-- <div class="h-[600px]"> -->
 					<span transition:fade={{ delay: 600, duration: 300 }}>
 						<div class="flex flex-col items-center justify-end">
 							<ProfileCard
@@ -174,7 +148,6 @@
 							/>
 						</div>
 					</span>
-					<!-- </div> -->
 				{/if}
 			</section>
 		</div>
@@ -187,9 +160,11 @@
 					p-4 pr-6 mr-2 pt-[128px] mt-[128px] md:mt-0 /*border-b /*border-r
 					flex flex-col items-center justify-center"
 			>
-				<SubHeader class="">Software Engineer specialized in React/React Native</SubHeader>
+				<SubHeader class="text-center"
+					>Software Engineer specialized in React/React Native</SubHeader
+				>
 				<Divider size={24} />
-				<Description>
+				<Description class="text-center">
 					As a Front-end focused software engineer, I will be able to design, implement and maintain
 					mobile and web applications using component based development.
 				</Description>
@@ -209,15 +184,9 @@
 				<div
 					use:viewport
 					on:enterViewport={() => {
-						console.log('enter')
-
 						isProfileExpanded = true
-						// section1Animation = true
 					}}
-					on:exitViewport={() => {
-						console.log('exit')
-						//isProfileExpanded = false
-					}}
+					on:exitViewport={() => {}}
 				/>
 				<Divider size={96} />
 				<button on:click={openCV} class="pt-2 pb-2 pl-4 pr-4 border">Open CV</button>
@@ -225,36 +194,23 @@
 		{/if}
 	</section>
 	{#if travelSignVisible}
-		<!-- <div transition:fade={{delay: 0, duration: 600}}> -->
 		<TravelSign />
-		<!-- </div> -->
 	{/if}
-	<!-- <section class="flex flex-col justify-center min-h-screen bg-green-300 full-screen-section"> -->
 	<div id="#section1" class={section1Animation ? 'section-1' : ''} />
 	<div class="section-1-animation" />
-	<!-- <SubTitle>My story</SubTitle> -->
-
 	<div
 		use:viewport
 		on:enterViewport={() => {
-			console.log('enter DASHEDLINE')
-			//dashedLineScrolling()
 			setTravelSign(true)
 		}}
-		on:exitViewport={() => {
-			console.log('exit DASHEDLINE')
-			// setTravelSign(false)
-		}}
+		on:exitViewport={() => {}}
 	>
 		{#if innerWidth > 1024}
 			<DottedLineLeft id="1" />
 		{:else}
 			<DottedLineLeftSmall id="11" />
 		{/if}
-		<!-- </div> -->
 	</div>
-	<!-- </section> -->
-
 	<StorySection>
 		<SubHeader class="sm:ml-[15%] md:ml-[25%] lg:ml-[30%] xl:ml-[32%] inline"
 			>I started learning programming in</SubHeader
@@ -320,7 +276,6 @@
 			use:viewport
 			on:enterViewport={() => {
 				university = true
-				// universityDescription = true
 			}}
 			on:exitViewport={() => {}}
 		/>
