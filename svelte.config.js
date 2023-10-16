@@ -22,9 +22,9 @@ const config = {
 			strict: true,
 			
 		}),
-		// path: {
-		// 		base: '/Tamassp.github.io'
-		// 	}
+		path: {
+				base: '/'
+			}
 	}
 	// kit: {
 	// 	adapter: adapter(),
