@@ -3,6 +3,7 @@
 	import Button from '../components/Button.svelte'
 	import Divider from '../components/Divider.svelte'
 	import { onMount } from 'svelte'
+	import Title from '../components/Title.svelte'
 
 	let clicked = false
 
@@ -72,29 +73,15 @@
 </svelte:head>
 
 <!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
-<button on:click={incrementCount}>
+<!-- TEST BUTTON -->
+<!-- <button on:click={incrementCount}>
 	Clicked {count}
 	{count === 1 ? 'time' : 'times'}
-</button>
+</button> -->
 <div class="w-full pageContainer">
-	<button on:click={handleClick} class={clicked ? 'bg-primary' : 'bg-accent'}>Click</button>
-	<!-- improvising with svgs-->
-	<!-- <svg viewBox="0 0 100 100" fill="green">
-        <path 
-            id="upper"
-            fill="none" 
-            stroke="white" 
-            d="M 10 20 l 15 3 l 20 10"></path>
-        <path id="lower" fill="none" 
-            stroke="white"  d="M 50 60 l 15 3 l 20 10"></path> -->
-	<!-- <rect 
-        x="10" y="10"
-        width="60" height="80"
-        fill="red"
-        stroke="black"
-    /> 
-    </svg>-->
-	<nav>
+	<Title>Choose porfolio</Title>
+	<Divider />
+	<nav class="flex justify-center ">
 		<LinkButton
 			id="software"
 			on:mouseenter={handleMouseEnter}
@@ -134,7 +121,7 @@
 
 			<h3 class="">Software</h3>
 		</LinkButton>
-		<LinkButton
+		<!-- <LinkButton
 			id="bands"
 			on:mouseenter={handleMouseEnter}
 			on:mouseleave={handleMouseLeave}
@@ -156,7 +143,7 @@
 				/>
 			</svg>
 			Bands
-		</LinkButton>
+		</LinkButton> -->
 	</nav>
 </div>
 
@@ -210,8 +197,10 @@
 		display: flex;
 		flex-direction: column;
 		align-self: center;
+		align-items: center;
 		/* MAKE CONDITION */
-		max-width: 800px;
+		/* max-width: 800px; */
+		width: 100%;
 		margin-top: 25vh;
 	}
 
@@ -223,6 +212,10 @@
 		color: black;
 		z-index: 5;
 		/* animation: 2s ease-in forwards select; */
+	}
+	#software :hover {
+		background-color: white;
+	
 	}
 
 	#computer2 {

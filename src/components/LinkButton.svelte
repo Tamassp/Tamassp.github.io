@@ -28,9 +28,13 @@
 
 		/* border: 4px solid red; */
 		border-radius: 4px;
+		transition:  all 0.5s ease;
 	}
 
-	/* a:hover, a:active {
-    background-color: red;
-    } */
+	a:hover, a:active {
+    	
+		transition:  all 0.5s ease;
+		background-color: rgba(23, 97, 120, 0.5);
+		color: black;
+    }
 </style>
