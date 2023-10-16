@@ -22,9 +22,9 @@ const config = {
 			strict: true,
 			
 		}),
-		path: {
-				base: '/band-portfolio'
-			}
+		// path: {
+		// 		base: '/Tamassp.github.io'
+		// 	}
 	}
 	// kit: {
 	// 	adapter: adapter(),

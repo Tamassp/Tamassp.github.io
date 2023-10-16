@@ -1,6 +1,7 @@
 <script>
 	import Card from './Card.svelte'
 	import { scrollPosition } from '../actions/scrollPosition'
+	import profilePic from '$lib/images/profilepic.png';
 
 	let cardProps = {
 		class: [$$restProps.class]
@@ -15,7 +16,7 @@
 	<div>
 		<Card class=" {$$props.class} flex flex-col justify-end justify-items-end p-6 md:p-14 md:pt-0 ">
 			<img
-				src="src/images/profilepic.PNG"
+				src={profilePic}
 				alt="Profile Pic"
 				class="z-10 w-32 h-32 mx-auto -mt-12 /*border /*shadow-xl aspect-square"
 			/>

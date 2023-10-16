@@ -29,6 +29,17 @@
 	import Arrow from '../../icons/Arrow.svelte'
 	import Footer from '../../components/Footer.svelte'
 	import StorySection from '../../components/StorySection.svelte'
+	import gimiPic from '$lib/images/gimi.png'
+	import viaPic from '$lib/images/via.png'
+	import keyholeIntro from '$lib/images/khIntro.gif'
+	import bprDemo from '$lib/images/bprDemo.gif'
+	import movieAppDemo from '$lib/images/movieAppDemo.gif'
+	import rockPaperDemo from '$lib/images/rockPaperDemo.gif'
+	import androidDemo from '$lib/images/AndroidDemo.gif'
+	import chessDemo from '$lib/images/chessStrategyDemo.gif'
+	import portfolioDemo from '$lib/images/PortfolioDemo.gif'
+	import bandPortfolioDemo from '$lib/images/BandPortfolio.gif'
+
 
 	export let data: PageData
 
@@ -251,7 +262,7 @@
 					class="flex flex-row justify-end order-1 col-span-1 lg:relative lg:justify-normal lg:order-2"
 				>
 					<img
-						src="src/images/gimi.png"
+						src={gimiPic}
 						alt="gimi"
 						class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
 					/>
@@ -292,7 +303,7 @@
 					class="flex flex-row justify-start order-2 col-span-1 lg:relative lg:justify-normal lg:order-1"
 				>
 					<img
-						src="src/images/via.png"
+						src={viaPic}
 						alt="via"
 						class="w-[70%] mr-0 h-auto lg:w-auto min-h-full object-fit z-10"
 					/>
@@ -371,8 +382,8 @@
 							{/if}
 						</div>
 						<img
-							src="src/images/via.png"
-							alt="via"
+							src={viaPic}
+							alt="via2"
 							class="z-10 w-[70%] h-auto min-h-full mr-0 lg:w-auto object-fit"
 						/>
 					</div>
@@ -413,7 +424,7 @@
 						'React web app for landlords'
 					],
 					projectColor: '#ff8d93',
-					demoSrc: 'src/images/khIntro.gif',
+					demoSrc:  keyholeIntro ,
 					icons: ['react', 'ts', 'js'],
 					year: '2022-2023',
 					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
@@ -431,7 +442,7 @@
 						'.NET API for data processing'
 					],
 					demoOrientation: 'landscape',
-					demoSrc: 'src/images/bprDemo.gif',
+					demoSrc: bprDemo,
 					icons: ['react', 'ts', 'js', 'c#'],
 					projectColor: '#663399',
 					subTitle: 'A solution for visualizing datapoints coming from different companies',
@@ -446,7 +457,7 @@
 						'GitHub Actions'
 					],
 					demoOrientation: 'landscape',
-					demoSrc: 'src/images/movieAppDemo.gif',
+					demoSrc: movieAppDemo,
 					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
 					icons: ['blazor', 'c#', 'azure'],
 					projectColor: '#DFA67B',
@@ -457,7 +468,7 @@
 				{
 					bulletPoints: ['Unity', 'Oculus Interaction SDK', 'OVRCameraRig'],
 					demoOrientation: 'square',
-					demoSrc: 'src/images/rockPaperDemo.gif',
+					demoSrc: rockPaperDemo,
 					icons: ['unity', 'oculus', 'c#'],
 					projectColor: '#79AC78',
 					subTitle: 'A VR Game created where the player has to fight a cactus',
@@ -467,7 +478,7 @@
 				{
 					bulletPoints: ['Physics for projectiles', 'AI pathfinding', 'Animations, shaders etc.'],
 					demoOrientation: 'landscape',
-					demoSrc: 'src/images/chessStrategyDemo.gif',
+					demoSrc: chessDemo,
 					icons: ['unity', 'c#'],
 					inProgress: true,
 					projectColor: '#645b37',
@@ -483,7 +494,7 @@
 						'Loriot Network Gateway'
 					],
 					demoOrientation: 'portrait',
-					demoSrc: 'src/images/AndroidDemo.gif',
+					demoSrc: androidDemo,
 					icons: ['android', 'springboot', 'java'],
 					projectColor: '#006400 ',
 					subTitle: 'Monitoring and controlling a greenhouse via:',
@@ -505,7 +516,7 @@
 						'Hosting on GitHub Pages'
 					],
 					demoOrientation: 'landscape',
-					demoSrc: 'src/images/PortfolioDemo.gif',
+					demoSrc: portfolioDemo,
 					icons: ['svelte', 'ts', 'js'],
 					inProgress: true,
 					projectColor: '#176178',
@@ -521,7 +532,7 @@
 						'Hosting on GitHub Pages'
 					],
 					demoOrientation: 'landscape',
-					demoSrc: 'src/images/BandPortfolio.gif',
+					demoSrc: bandPortfolioDemo,
 					icons: ['svelte', 'ts', 'js'],
 					inProgress: true,
 					projectColor: '#8B0000',
