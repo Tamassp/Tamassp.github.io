@@ -17,13 +17,14 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: null,
+			fallback: 'index.html',
 			precompress: false,
 			strict: true,
-			path: {
+			
+		}),
+		path: {
 				base: 'Tamassp.github.io/band-portfolio'
 			}
-		})
 	}
 	// kit: {
 	// 	adapter: adapter(),
