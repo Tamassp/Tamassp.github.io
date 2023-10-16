@@ -22,9 +22,9 @@ const config = {
 			strict: true,
 			
 		}),
-		path: {
-				base: '/'
-			}
+		// path: {
+		// 		base: ''
+		// 	}
 	}
 	// kit: {
 	// 	adapter: adapter(),
