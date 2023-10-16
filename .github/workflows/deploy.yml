@@ -28,7 +28,7 @@ jobs:
 
       - name: build
         env:
-          BASE_PATH: "Tamassp.github.io/band-portfolio"
+          BASE_PATH: "/band-portfolio"
         run: |
           npm run build
 

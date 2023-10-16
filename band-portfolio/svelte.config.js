@@ -23,7 +23,7 @@ const config = {
 			
 		}),
 		path: {
-				base: 'Tamassp.github.io/band-portfolio'
+				base: '/band-portfolio'
 			}
 	}
 	// kit: {
