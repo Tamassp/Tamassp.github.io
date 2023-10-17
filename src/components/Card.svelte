@@ -4,7 +4,7 @@
 	const classes = twMerge('h-full w-full block border-l border-b border-gray-200', $$props.class)
 
 	export let onCardClick = () => {
-		console.log('onCardClick')
+		// console.log('onCardClick')
 	}
 </script>
 

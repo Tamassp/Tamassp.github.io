@@ -63,7 +63,6 @@
 	let projectDescription = ''
 
 	onMount(() => {
-		console.log('visible: ' + visible)
 	})
 
 	setTimeout(() => {
@@ -77,19 +76,15 @@
 
 	function onProfileCardClick() {
 		isProfileExpanded = true
-		console.log('Profile Card Clicked')
 	}
 
-	console.log(section1Animation)
 
 	function openCV() {
 		popupIsOpen = true
-		console.log('CV opened')
 	}
 
 	function closeCV() {
 		popupIsOpen = false
-		console.log('CV closed')
 	}
 
 	//ONLOAD
@@ -114,7 +109,6 @@
 		projectTitle = title
 		projectDescription = description
 		projectPopupIsOpen = true
-		console.log('Project Popup opened')
 	}
 </script>
 
@@ -182,13 +176,11 @@
 				<div
 					use:viewport
 					on:enterViewport={() => {
-						console.log('enter')
 
 						//isProfileExpanded = true
 						// section1Animation = true
 					}}
 					on:exitViewport={() => {
-						console.log('exit')
 						isProfileExpanded = false
 					}}
 				/>
@@ -399,7 +391,6 @@
 	<div
 		use:viewport
 		on:enterViewport={() => {
-			console.log('enter DASHEDLINE')
 			setProjectSign(true)
 		}}
 		on:exitViewport={() => {

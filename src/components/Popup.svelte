@@ -36,7 +36,7 @@
 
 	function setScrollToOffset() {
 		window.scrollTo(0, pageOffset)
-		console.log('setScrollToOffset', pageOffset)
+		// console.log('setScrollToOffset', pageOffset)
 	}
 </script>
 

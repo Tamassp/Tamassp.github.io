@@ -19,7 +19,6 @@
 	let controller
 	$: console.dir(controller) // Output: DOM element object
 
-	console.log('OIII')
 </script>
 
 <svelte:head>

@@ -46,7 +46,7 @@
 	})
 
 	export let onCardClick = (): any => {
-		console.log('onCardClick')
+		// console.log('onCardClick')
 	}
 
 	const bgColor = `bg-[${projectColor}]`

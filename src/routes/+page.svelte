@@ -22,7 +22,7 @@
 			clicked = false
 		}
 
-		console.log('clicked')
+		// console.log('clicked')
 		// const pathUpper = document.querySelector('#upper')
 		// const pathLower = document.querySelector('#lower')
 		// console.log(pathUpper.getTotalLength())
@@ -34,7 +34,6 @@
 			const computer = document.getElementById('computer')
 			computer?.classList.remove('unSelect')
 			computer?.classList.add('select')
-			console.log(computer?.classList)
 		}
 		if (targetElement.id === 'bands') {
 			const note = document.getElementById('note')
@@ -45,12 +44,10 @@
 
 	const handleMouseLeave = (e: MouseEvent) => {
 		const targetElement = e.target
-		console.log(targetElement.id)
 		if (targetElement.id === 'software') {
 			const computer = document.getElementById('computer')
 			computer?.classList.remove('select')
 			computer?.classList.add('unSelect')
-			console.log(computer?.classList)
 		}
 		if (targetElement.id === 'bands') {
 			const note = document.getElementById('note')

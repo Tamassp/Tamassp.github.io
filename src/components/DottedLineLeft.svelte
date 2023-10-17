@@ -36,7 +36,7 @@
 			dashedLine.style.strokeDasharray = `${-animationValue + 1} ${animationValue} `
 			//console.log((1 - animationValue.toString()) * pathLength)
 
-			console.log('pathlenght: ' + dashedLine.getTotalLength())
+			// console.log('pathlenght: ' + dashedLine.getTotalLength())
 		}
 	}
 </script>
@@ -45,7 +45,7 @@
 	id="viewportWrapper"
 	use:viewport
 	on:enterViewport={() => {
-		console.log('enter DASHEDLINE')
+		// console.log('enter DASHEDLINE')
 		checkSVGHeight()
 		if (firstTime) {
 			setOffset()
@@ -58,7 +58,7 @@
 	on:exitViewport={() => {
 		removeEventListener('scroll', handleScroll)
 		removeEventListener('resize', checkSVGHeight)
-		console.log('exit DASHEDLINE')
+		// console.log('exit DASHEDLINE')
 	}}
 >
 	<svg

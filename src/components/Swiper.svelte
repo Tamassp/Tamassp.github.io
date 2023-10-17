@@ -20,8 +20,8 @@
 	export let projects: Project[] = []
 	export let innerWidth = 0
 	function onProjectCardClick(title: string, description: string) {
-		console.log('title', title || 'no title')
-		console.log('description', description || 'no description')
+		// console.log('title', title || 'no title')
+		// console.log('description', description || 'no description')
 	}
 </script>
 
