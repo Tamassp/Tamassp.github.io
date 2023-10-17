@@ -205,6 +205,11 @@
 				<Divider size={96} />
 				<button on:click={openCV} class="pt-2 pb-2 pl-4 pr-4 border">Open CV</button>
 			</div>
+			<div class="absolute left-0 right-0 m-auto bottom-10 w-fit h-fit">
+			{#if scrollArrow}
+				<Arrow class="-rotate-90" />
+			{/if}
+			</div>
 		{/if}
 	</section>
 	{#if travelSignVisible}
