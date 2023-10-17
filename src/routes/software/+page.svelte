@@ -74,6 +74,11 @@
 		// console.log("LENGHT" + length);
 	}, 300)
 
+	let scrollArrow = false
+	setTimeout(() => {
+		scrollArrow = true
+	}, 2000)
+
 	function onProfileCardClick() {
 		isProfileExpanded = true
 	}
@@ -138,7 +143,7 @@
     </div>-->
 		<div class="absolute top-0 bottom-0 left-0 right-0 m-auto w-fit h-fit">
 			<section class="grid min-h-full full-width-section md:gap-16 md:grid-cols-2 lg:gap-32">
-				<div class="flex items-center justify-center h-64">
+				<div class="flex items-center justify-center h-24 md:h-64">
 					<Title><TypeWriter {visible} text="Welcome!" /></Title>
 				</div>
 
@@ -155,7 +160,13 @@
 					</span>
 				{/if}
 			</section>
+			
 		</div>
+		<div class="absolute left-0 right-0 m-auto bottom-10 w-fit h-fit">
+			{#if scrollArrow}
+				<Arrow class="-rotate-90" />
+			{/if}
+			</div>
 	</div>
 
 	<section class="full-screen-section /*full-width-section -mt-[0vh] mb-32 /*bg-accent">
