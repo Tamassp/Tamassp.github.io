@@ -41,7 +41,7 @@
 	import bandPortfolioDemo from '$lib/images/BandPortfolio.gif'
 	import ARMenuDemo from '$lib/images/ARMenuDemo.gif'
 	import ARLearningDemo from '$lib/images/ARLearningDemo.gif'
-	import wizzardGameDemo from '$lib/images/WizzardGameDemo.gif'
+	import wizzardGameDemo from '$lib/images/wizzardGameDemo.gif'
 
 
 	export let data: PageData
