@@ -4,7 +4,7 @@
 	import SubHeader from './SubHeader.svelte'
 
 	export let title = ''
-	export let description = ''
+	export let description:string | any = ''
 	export let subTitle = ''
 	export let bulletPoints: string[] = []
 

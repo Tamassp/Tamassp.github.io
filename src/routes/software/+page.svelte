@@ -39,6 +39,9 @@
 	import chessDemo from '$lib/images/chessStrategyDemo.gif'
 	import portfolioDemo from '$lib/images/PortfolioDemo.gif'
 	import bandPortfolioDemo from '$lib/images/BandPortfolio.gif'
+	import ARMenuDemo from '$lib/images/ARMenuDemo.gif'
+	import ARLearningDemo from '$lib/images/ARLearningDemo.gif'
+	import wizzardGameDemo from '$lib/images/WizzardGameDemo.gif'
 
 
 	export let data: PageData
@@ -430,11 +433,11 @@
 						'React web app for tenants',
 						'React web app for landlords'
 					],
+					filterTag: 'frontend',
 					projectColor: '#ff8d93',
 					demoSrc:  keyholeIntro ,
 					icons: ['react', 'ts', 'js'],
 					year: '2022-2023',
-					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
 				}
 			]}
 			title="Work"
@@ -450,6 +453,7 @@
 					],
 					demoOrientation: 'landscape',
 					demoSrc: bprDemo,
+					filterTag: 'frontend',					
 					icons: ['react', 'ts', 'js', 'c#'],
 					projectColor: '#663399',
 					subTitle: 'A solution for visualizing datapoints coming from different companies',
@@ -465,33 +469,12 @@
 					],
 					demoOrientation: 'landscape',
 					demoSrc: movieAppDemo,
-					description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum',
+					filterTag: 'frontend',
 					icons: ['blazor', 'c#', 'azure'],
 					projectColor: '#DFA67B',
 					subTitle: 'An imdb-like app for searching movies, actors and tv shows',
 					title: 'Movie Info App',
 					year: '2022'
-				},
-				{
-					bulletPoints: ['Unity', 'Oculus Interaction SDK', 'OVRCameraRig'],
-					demoOrientation: 'square',
-					demoSrc: rockPaperDemo,
-					icons: ['unity', 'oculus', 'c#'],
-					projectColor: '#79AC78',
-					subTitle: 'A VR Game created where the player has to fight a cactus',
-					title: 'Rock Paper Scrissors',
-					year: '2022'
-				},
-				{
-					bulletPoints: ['Physics for projectiles', 'AI pathfinding', 'Animations, shaders etc.'],
-					demoOrientation: 'landscape',
-					demoSrc: chessDemo,
-					icons: ['unity', 'c#'],
-					inProgress: true,
-					projectColor: '#645b37',
-					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
-					title: 'Chess Strategy',
-					year: '2023'
 				},
 				{
 					bulletPoints: [
@@ -502,14 +485,87 @@
 					],
 					demoOrientation: 'portrait',
 					demoSrc: androidDemo,
+					filterTag: 'frontend',
 					icons: ['android', 'springboot', 'java'],
 					projectColor: '#006400 ',
 					subTitle: 'Monitoring and controlling a greenhouse via:',
 					title: 'Automated Greenhouse',
-					year: '2023'
+					year: '2021'
 				}
 			]}
-			title="University"
+			title="University - Frontend"
+		/>
+		<Divider />
+		<Swiper
+			{innerWidth}
+			projects={[
+				{
+					bulletPoints: ['Unity', 'Oculus Interaction SDK', 'OVRCameraRig'],
+					demoOrientation: 'square',
+					demoSrc: rockPaperDemo,
+					demoLink: 'https://youtu.be/mibE-J45fOk',
+					filterTag: 'xr/unity',
+					icons: ['unity', 'oculus', 'c#'],
+					gitHubLink: 'https://github.com/Tamassp/XRD_Assignment4_Handtracking',
+					projectColor: '#79AC78',
+					subTitle: 'A VR Game created where the player has to fight a cactus',
+					title: 'Rock Paper Scrissors',
+					year: '2022'
+				},
+				
+				{
+					bulletPoints: ['Physics for projectiles', 'AI pathfinding', 'Animations, shaders etc.'],
+					demoOrientation: 'landscape',
+					demoSrc: chessDemo,
+					demoLink: 'https://youtu.be/hso705xishI',
+					filterTag: 'xr/unity',
+					icons: ['unity', 'c#'],
+					gitHubLink: 'https://github.com/Tamassp/Chess-Strategy-Game',
+					inProgress: true,
+					projectColor: '#645b37',
+					subTitle: 'A Unity game where the player has to out-maneuver the opponent pieces',
+					title: 'Chess Strategy',
+					year: '2023'
+				},
+				{
+					bulletPoints: ['Markerbased AR', 'Unity', 'Vuforia', 'Image targets, Homography etc.'],
+					demoOrientation: 'landscape',
+					demoSrc: ARMenuDemo,
+					demoLink: 'https://www.youtube.com/watch?v=oPjE8uAbkdA',
+					filterTag: 'xr/unity',
+					icons: ['unity', 'vuforia', 'c#'],
+					projectColor: '#912445',
+					subTitle: 'An AR application to display a 3D model of a food product',
+					title: '3D Burger Menu',
+					year: '2022'
+				},
+				{
+					bulletPoints: ['Markerless AR', 'ARCore / AR Foundation', 'Plane Manager / Raycast Manager'],
+					demoOrientation: 'portrait',
+					demoSrc: ARLearningDemo,
+					demoLink: 'https://youtube.com/shorts/weNUfP-zKZY',
+					filterTag: 'xr/unity',
+					icons: ['unity', 'c#'],
+					projectColor: '#365E86',
+					subTitle: 'An AR app that helps learning by posting notes around the house',
+					title: 'Post-it Learning',
+					year: '2022'
+				},
+				{
+					bulletPoints: ['XROrigin', 'Teleportation / Snap Turn Provider', 'Ray Cast Interaction and Grab'],
+					demoOrientation: 'square',
+					demoSrc: wizzardGameDemo,
+					demoLink: 'https://www.youtube.com/watch?v=7ddhNyK_5dc',
+					filterTag: 'xr/unity',
+					icons: ['unity', 'oculus', 'c#'],
+					gitHubLink: 'https://github.com/Tamassp/Young-Dumbledore',
+					projectColor: '#89507E',
+					subTitle: 'Cast spells in VR by drawing symbols using a wand',
+					title: 'Wizzard Game',
+					year: '2022'
+				}
+			]}
+			title="University - XR / Unity"
 		/>
 		<Divider />
 		<Swiper
@@ -524,10 +580,11 @@
 					],
 					demoOrientation: 'landscape',
 					demoSrc: portfolioDemo,
+					filterTag: 'frontend',		
 					icons: ['svelte', 'ts', 'js'],
 					inProgress: true,
 					projectColor: '#176178',
-					subTitle: 'Created for presenting my projects and experience',
+					subTitle: 'Created for telling my story and presenting my projects, experience',
 					title: 'Portfolio Website',
 					year: '2023'
 				},
@@ -535,11 +592,12 @@
 					bulletPoints: [
 						'Component Based Development',
 						'Learning a new framework (Svelte)',
-						'Working with SVGs',
+						'Mobile First Design',
 						'Hosting on GitHub Pages'
 					],
 					demoOrientation: 'landscape',
 					demoSrc: bandPortfolioDemo,
+					filterTag: 'frontend',
 					icons: ['svelte', 'ts', 'js'],
 					inProgress: true,
 					projectColor: '#8B0000',

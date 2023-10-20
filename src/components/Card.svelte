@@ -6,6 +6,8 @@
 	export let onCardClick = () => {
 		// console.log('onCardClick')
 	}
+
+	export let id = ''
 </script>
 
 <!-- Card -->
@@ -21,6 +23,6 @@ on:keydown|self={(e) => {
 	}}
 role="button"
 tabindex="0" -->
-<div class={classes}>
+<div class={classes} {id}>
 	<slot />
 </div>

@@ -13,6 +13,6 @@
 			<GitHubIcon class="m-2" /> -->
 		</div>
 		<Divider />
-		<Description>Find more contact info on my CV</Description>
+		<Description>Find more contact info in my application</Description>
 	</div>
 </div>
