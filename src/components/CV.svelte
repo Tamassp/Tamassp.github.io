@@ -18,7 +18,7 @@
 				'.NET C# / Java',
 				'GraphQL / MongoDB / SQL',
 				'Azure / GitHub Actions',
-				'Unity'
+				'Unity / XR Interaction Toolkit / AR Core'
 			]}
 		/>
 		<Divider />
