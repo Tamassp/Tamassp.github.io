@@ -118,7 +118,7 @@
 
 			<h3 class="">Software</h3>
 		</LinkButton>
-		<!-- <LinkButton
+		<LinkButton
 			id="bands"
 			on:mouseenter={handleMouseEnter}
 			on:mouseleave={handleMouseLeave}
@@ -140,7 +140,7 @@
 				/>
 			</svg>
 			Bands
-		</LinkButton> -->
+		</LinkButton>
 	</nav>
 </div>
 
