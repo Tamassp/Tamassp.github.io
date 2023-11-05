@@ -180,12 +180,12 @@
 					flex flex-col items-center justify-center"
 			>
 				<SubHeader class="text-center"
-					>Software Engineer specialized in React/React Native</SubHeader
+					>Software Engineer specialized in React and XR development</SubHeader
 				>
 				<Divider size={24} />
 				<Description class="text-center">
-					As a Front-end focused software engineer, I will be able to design, implement and maintain
-					mobile and web applications using component based development.
+					As a Front-end and XR focused software engineer, I will be able to design, implement and maintain
+					mobile, web and XR applications using Component Based Development or Entity Component System.
 				</Description>
 				<div
 					use:viewport
