@@ -4,6 +4,11 @@
 	import Divider from '../../components/Divider.svelte'
 	import Button from '../../components/Button.svelte'
 	import TitleDescriptionCard from '../../components/TitleDescriptionCard.svelte'
+	import TitleDescription from '../../components/TitleDescription.svelte'
+	import { deserialize } from '$app/forms'
+	import bandIMG1 from '$lib/images/bandCover.jpg'
+	import bandIMG2 from '$lib/images/band2.jpg'
+	import Title from '../../components/Title.svelte'
 	let src = 'src/images/bandCover.jpg'
 	let src2 = 'src/images/band2.jpg'
 	//let recordingList = ['src/recordings/Watermelon Sugar Demo.mp3', 'src/recordings/Watermelon Sugar Demo.mp3'];
@@ -26,6 +31,7 @@
 </svelte:head>
 
 <svelte:window bind:innerWidth bind:innerHeight />
+
 
 <div class="pageContainer">
 	<!-- <div class="coverImage">
@@ -55,6 +61,26 @@
 	<!-- <AudioPlayer  url={recording} bind:controller={controller} /> -->
 
 	<!-- <TitleDescriptionCard/> -->
+
+	<div class="flex flex-row justify-between navbar">
+		<Title class="logo">Piano & Vocal Duo</Title>
+		<Title class="burgerMenu">|||</Title>
+		<!-- <div class="navLinks">
+			<a href="#">Home</a>
+			<a href="#">About</a>
+			<a href="#">Contact</a>
+		</div> -->
+
+	</div>
+	<div class="page-container">
+		<img src={bandIMG1} alt="background" />
+		<img src={bandIMG2} alt="background2" />
+		<div class="flex flex-col items-center content">
+			<TitleDescription title="About" description="We are a duo from Horsens. We play background music in bars and coffes" />
+			<a>Listen to our portfolio</a>
+			<TitleDescription title="Booking" description="hello@gmail.com"></TitleDescription>
+		</div>
+	</div>
 </div>
 
 <style>
@@ -62,8 +88,8 @@
 		font-family: 'Homenaje';
 	}
 	:global(body) {
-		background-color: rgb(0, 0, 0);
-		color: white;
+		/* background-color: rgb(0, 0, 0);
+		color: white; */
 		display: flex;
 		justify-content: center;
 	}
@@ -72,12 +98,13 @@
 		/* background-color: bisque; */
 		/* opacity: 0.5; */
 		position: relative;
-		display: flex;
+		/* display: flex;
 		flex-direction: column;
-		align-self: center;
+		align-self: center; */
 		/* MAKE CONDITION */
-		max-width: 800px;
-		margin-top: 25vh;
+		/* max-width: 800px; */
+		max-width: 1536px;
+		/* margin-top: 25vh; */
 	}
 	.mainTitle {
 		/* font-family: Homenaje; */
@@ -91,12 +118,12 @@
 		width: fit-content;
 	}
 	img {
-		position: absolute;
-		margin: 10%;
-		width: 90%;
+		/* position: absolute; */
+		/* margin: 10%; */
+		width: 100%;
 		aspect-ratio: 16/9;
 		object-fit: cover;
-		border-radius: 20px;
+		/* border-radius: 20px; */
 		z-index: -1;
 	}
 	.video {
