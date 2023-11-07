@@ -806,4 +806,14 @@
 			opacity: 1;
 		}
 	}
+
+	:global(img) {
+		transform: scale(1);
+		transition: 0.3s ease-in-out;
+	}
+	:global(img:hover) {
+		/* animation: hover 0.3s ease-in-out forwards alternate; */
+		transform: scale(1.03);
+		transition: 0.3s ease-in-out;
+	}
 </style>

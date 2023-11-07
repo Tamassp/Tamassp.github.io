@@ -28,5 +28,5 @@
 	</div>
 {/if}
 {#if description}
-	<Description class="max-w-xs mt-4">{description}</Description>
+	<Description class="max-w-xs mt-4 {descriptionStyles}">{description}</Description>
 {/if}

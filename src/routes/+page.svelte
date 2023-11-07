@@ -67,6 +67,7 @@
 
 <svelte:head>
 	<link href="https://fonts.googleapis.com/css?family=Homenaje" rel="stylesheet" />
+	<!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />  -->
 </svelte:head>
 
 <!-- <svelte:window bind:innerWidth bind:innerHeight /> -->
@@ -147,6 +148,7 @@
 <style>
 	* {
 		font-family: 'Homenaje';
+		/* font-family: 'Raleway', sans-serif; */
 	}
 	:global(body) {
 		/* background-color: rgb(0, 0, 0);

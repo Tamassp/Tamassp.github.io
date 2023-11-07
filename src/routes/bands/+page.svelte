@@ -27,7 +27,8 @@
 </script>
 
 <svelte:head>
-	<link href="https://fonts.googleapis.com/css?family=Homenaje" rel="stylesheet" />
+	<!-- <link href="https://fonts.googleapis.com/css?family=Homenaje" rel="stylesheet" /> -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
 </svelte:head>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -62,7 +63,7 @@
 
 	<!-- <TitleDescriptionCard/> -->
 
-	<div class="flex flex-row justify-between navbar">
+	<div class="sticky top-0 left-0 z-10 flex flex-row justify-between w-full pt-6 pb-6 pl-2 pr-2 bg-white navbar">
 		<Title class="logo">Piano & Vocal Duo</Title>
 		<Title class="burgerMenu">|||</Title>
 		<!-- <div class="navLinks">
@@ -72,26 +73,37 @@
 		</div> -->
 
 	</div>
-	<div class="page-container">
-		<img src={bandIMG1} alt="background" />
-		<img src={bandIMG2} alt="background2" />
-		<div class="flex flex-col items-center content">
-			<TitleDescription title="About" description="We are a duo from Horsens. We play background music in bars and coffes" />
+	<div class="relative page-container">
+		<img src={bandIMG1} alt="background" class="sticky top-16 left-0 max-h-[60vh] w-full  "/>
+		<Divider size={12} />
+		<img src={bandIMG2} alt="background2" class="sticky top-32 left-0 /*rotate-2 max-h-[60vh] w-full"/>
+		<Divider size={12} />
+		<img src={bandIMG1} alt="background3" class="sticky top-40 left-0 max-h-[60vh] w-full"/>
+		<div class="flex flex-col items-center bg-white md:mt-12 content">
+			<Divider size={32} />
+			<TitleDescription title="About" description="We are a duo from Horsens. We play background music in bars and coffes" descriptionStyles=" text-center" />
+			<Divider size={24} />
 			<a>Listen to our portfolio</a>
+			<Divider size={48} />
 			<TitleDescription title="Booking" description="hello@gmail.com"></TitleDescription>
 		</div>
+		<Divider />
 	</div>
 </div>
 
 <style>
 	* {
-		font-family: 'Homenaje';
+		/* font-family: 'Homenaje'; */
+		font-family: 'Raleway', sans-serif;
+		font-weight: 100;
 	}
 	:global(body) {
 		/* background-color: rgb(0, 0, 0);
 		color: white; */
 		display: flex;
 		justify-content: center;
+
+		padding: 0;
 	}
 
 	.pageContainer {
@@ -119,12 +131,17 @@
 	}
 	img {
 		/* position: absolute; */
-		/* margin: 10%; */
-		width: 100%;
-		aspect-ratio: 16/9;
+		/* margin: -10 */
+		/* width: 100%; */
+		/* aspect-ratio: 16/9; */
 		object-fit: cover;
 		/* border-radius: 20px; */
 		z-index: -1;
+
+		/* width: 100vw;
+		position: relative;
+		left: calc(-50vw + 50%); */
+
 	}
 	.video {
 		margin-top: 24px;
@@ -144,4 +161,5 @@
 			margin-top: 20px;
 		}
 	}
+
 </style>
