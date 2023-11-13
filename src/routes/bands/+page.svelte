@@ -1,6 +1,8 @@
 <script>
 	// import Youtube from 'svelte-youtube-embed'
 	// import { AudioPlayer } from 'svelte-mp3'
+	import { Hamburger } from 'svelte-hamburgers';
+
 	import Divider from '../../components/Divider.svelte'
 	import Button from '../../components/Button.svelte'
 	import TitleDescriptionCard from '../../components/TitleDescriptionCard.svelte'
@@ -9,6 +11,7 @@
 	import bandIMG1 from '$lib/images/bandCover.jpg'
 	import bandIMG2 from '$lib/images/band2.jpg'
 	import Title from '../../components/Title.svelte'
+	import Menu from '../../components/Menu.svelte'
 	let src = 'src/images/bandCover.jpg'
 	let src2 = 'src/images/band2.jpg'
 	//let recordingList = ['src/recordings/Watermelon Sugar Demo.mp3', 'src/recordings/Watermelon Sugar Demo.mp3'];
@@ -23,6 +26,8 @@
 
 	let controller
 	$: console.dir(controller) // Output: DOM element object
+
+	let open = false
 
 </script>
 
@@ -63,9 +68,14 @@
 
 	<!-- <TitleDescriptionCard/> -->
 
-	<div class="sticky top-0 left-0 z-10 flex flex-row justify-between w-full pt-6 pb-6 pl-2 pr-2 bg-white navbar">
+	<div class="sticky top-0 left-0 z-10 flex flex-row items-center justify-between w-full pt-6 pb-6 pl-2 pr-2 bg-white navbar">
 		<Title class="logo">Piano & Vocal Duo</Title>
-		<Title class="burgerMenu">|||</Title>
+		<Hamburger
+			bind:open
+			 />
+
+		
+		<!-- <Title class="burgerMenu">|||</Title> -->
 		<!-- <div class="navLinks">
 			<a href="#">Home</a>
 			<a href="#">About</a>
@@ -73,6 +83,11 @@
 		</div> -->
 
 	</div>
+	<div class="fixed right-0 w-full ">
+		<Menu bind:open />
+	</div>
+	<!-- <Menu bind:open /> -->
+	
 	<div class="relative page-container">
 		<img src={bandIMG1} alt="background" class="sticky top-16 left-0 max-h-[60vh] w-full  "/>
 		<Divider size={12} />
