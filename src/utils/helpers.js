@@ -34,3 +34,41 @@ export function removeScrollVar() {
 // 		return <TypeScriptIcon />
 // 	}
 // }
+
+
+//If multiple images are loading, wait for all of them to finish
+
+export const createLoadObserver = handler => {
+	let waiting = 0
+
+	const onload = el => {
+		waiting++
+		el.addEventListener('load', () => {
+			waiting--
+			if (waiting === 0) {
+				handler()
+			}
+		})
+	}
+
+	return onload
+}
+
+//Check if images are fully loaded
+export const imagesLoaded = () => {
+	const images = document.querySelectorAll('img')
+	images.forEach((image) => {
+		function loaded() {
+			console.log('loaded!!!Helper')
+			
+		}
+
+		if (image.complete) {
+			return loaded()
+		} else {
+			image.addEventListener('load', loaded)
+			image.addEventListener('error', () => console.log('error'))
+		}
+	}
+	)
+}

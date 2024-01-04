@@ -1,6 +1,9 @@
 <script>
 	// import Youtube from 'svelte-youtube-embed'
 	// import { AudioPlayer } from 'svelte-mp3'
+	import { onMount } from 'svelte';
+	import { fade, slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
 	import { Hamburger } from 'svelte-hamburgers';
 
 	import Divider from '../../components/Divider.svelte'
@@ -8,8 +11,14 @@
 	import TitleDescriptionCard from '../../components/TitleDescriptionCard.svelte'
 	import TitleDescription from '../../components/TitleDescription.svelte'
 	import { deserialize } from '$app/forms'
-	import bandIMG1 from '$lib/images/bandCover.jpg'
-	import bandIMG2 from '$lib/images/band2.jpg'
+	import loaderGif from '$lib/images/loader.gif'
+	import coverSmall from '$lib/images/coverSmall.jpg'
+	import coverBig from '$lib/images/coverBig.jpg'
+	import coverSmall2 from '$lib/images/coverSmall2.jpg'
+	import coverBig2 from '$lib/images/coverBig2.jpg'
+	import coverSmall3 from '$lib/images/coverSmall3.jpg'
+	import coverBig3 from '$lib/images/coverBig3.jpg'
+
 	import Title from '../../components/Title.svelte'
 	import Menu from '../../components/Menu.svelte'
 	let src = 'src/images/bandCover.jpg'
@@ -21,13 +30,32 @@
 	]
 	let recording = recordingList[0]
 
+
+	
+	let loading = true
+
+	onMount(async () => {
+		loading = false
+	});
+
+
+	
+
 	let innerWidth = 0
 	let innerHeight = 0
 
-	let controller
-	$: console.dir(controller) // Output: DOM element object
+	// let controller
+	// $: console.dir(controller) // Output: DOM element object
 
 	let open = false
+
+	let sm = 640;
+	let md = 768;
+	let lg = 1024;
+	let xl = 1280;
+	let xxl = 1536;
+
+	
 
 </script>
 
@@ -68,33 +96,41 @@
 
 	<!-- <TitleDescriptionCard/> -->
 
-	<div class="sticky top-0 left-0 z-10 flex flex-row items-center justify-between w-full pt-6 pb-6 pl-2 pr-2 bg-white navbar">
+	<div  class="sticky top-0 left-0 z-10 flex flex-row items-center justify-between w-full pt-6 pb-6 pl-2 pr-2 bg-white navbar">
 		<Title class="logo">Piano & Vocal Duo</Title>
 		<Hamburger
 			bind:open
 			 />
-
-		
-		<!-- <Title class="burgerMenu">|||</Title> -->
-		<!-- <div class="navLinks">
-			<a href="#">Home</a>
-			<a href="#">About</a>
-			<a href="#">Contact</a>
-		</div> -->
-
 	</div>
 	<div class="fixed right-0 w-full ">
 		<Menu bind:open />
 	</div>
 	<!-- <Menu bind:open /> -->
 	
-	<div class="relative page-container">
-		<img src={bandIMG1} alt="background" class="sticky top-16 left-0 max-h-[60vh] w-full  "/>
-		<Divider size={12} />
-		<img src={bandIMG2} alt="background2" class="sticky top-32 left-0 /*rotate-2 max-h-[60vh] w-full"/>
-		<Divider size={12} />
-		<img src={bandIMG1} alt="background3" class="sticky top-40 left-0 max-h-[60vh] w-full"/>
-		<div class="flex flex-col items-center bg-white md:mt-12 content">
+	<div  class="relative page-container 2xl:pl-2 2xl:pr-2">
+		{#if loading}
+			<div out:slide={{ delay: 600, duration: 600, easing: quintOut, axis: 'y' }} class="fixed top-0 bottom-0 left-0 right-0 z-50 flex items-center bg-white">
+				<img src={loaderGif} alt="loading" class="m-auto scale-50 " />
+			</div>
+		{/if}
+		
+		<!-- Responsive images for different screen sizes -->
+		<picture transition:fade={{ delay: 250, duration: 300 }}  >
+			<source srcset={coverSmall} media="(max-width: {sm}px)" />
+			<img src={coverBig} alt="background" class="sticky top-16 left-0 /*max-h-[60vh] w-full "/>
+		</picture>
+		
+		<Divider size={12} class="-m-1 bg-white" />
+		<picture>
+			<source srcset={coverSmall2} media="(max-width: {sm}px)" />
+			<img src={coverBig2} alt="background" class="sticky top-16 left-0 /*max-h-[60vh] w-full "/>
+		</picture>
+		<Divider size={12} class="w-full -m-1 bg-white" />
+		<picture>
+			<source srcset={coverSmall3} media="(max-width: {sm}px)" />
+			<img src={coverBig3} alt="background" class="sticky top-16 left-0 /*max-h-[60vh] w-full "/>
+		</picture>
+		<div class="flex flex-col items-center -m-1 bg-white md:mt-12 content">
 			<Divider size={32} />
 			<TitleDescription title="About" description="We are a duo from Horsens. We play background music in bars and coffes" descriptionStyles=" text-center" />
 			<Divider size={24} />
@@ -103,6 +139,7 @@
 			<TitleDescription title="Booking" description="hello@gmail.com"></TitleDescription>
 		</div>
 		<Divider />
+	
 	</div>
 </div>
 
@@ -130,8 +167,20 @@
 		align-self: center; */
 		/* MAKE CONDITION */
 		/* max-width: 800px; */
-		max-width: 1536px;
+		/* max-width: 1536px; */
+		max-width: 1280px;
 		/* margin-top: 25vh; */
+	}
+
+	.imageWrapper {
+		background-image: url('../../lib/images/coverPic.jpg');
+		background-position: 50% 40%;
+  		/* background-size: cover; */
+		background-size: cover;
+		background-repeat: no-repeat;
+		width: 100%;
+		/* height: 0;
+		padding-top: 81.56%; */
 	}
 	.mainTitle {
 		/* font-family: Homenaje; */
