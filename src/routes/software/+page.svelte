@@ -42,6 +42,8 @@
 	import ARMenuDemo from '$lib/images/ARMenuDemo.gif'
 	import ARLearningDemo from '$lib/images/ARLearningDemo.gif'
 	import wizzardGameDemo from '$lib/images/wizzardGameDemo.gif'
+	import noMedia from '$lib/images/noMedia.jpg'
+	import jamAppDemo from '$lib/images/jamAppDemo.jpg'
 
 
 	export let data: PageData
@@ -609,6 +611,40 @@
 					subTitle: 'Created to present my band and our music',
 					title: 'Band Portfolio',
 					year: '2023'
+				},
+				{
+					bulletPoints: [
+						'React Native for cross-platform',
+						'Local storage for saving data',
+						'Exporting as PDF',
+					],
+					demoOrientation: 'portrait',
+					demoSrc: jamAppDemo,
+					filterTag: 'frontend',
+					gitHubLink: '',
+					icons: ['react', 'ts', 'js'],
+					inProgress: true,
+					projectColor: '#C6BE00',
+					subTitle: 'To create dynamic sheet music where the chords and the key can be changed easily',
+					title: 'Sheet Creator',
+					year: '2024'
+				},
+				{
+					bulletPoints: [
+						'Networking for co-learning',
+						'Entity Component System',
+						'OpenXR',
+					],
+					demoOrientation: 'landscape',
+					demoSrc: noMedia,
+					filterTag: 'xr/unity',
+					gitHubLink: '',
+					icons: ['unity', 'oculus', 'c#'],
+					inProgress: true,
+					projectColor: '#C64100',
+					subTitle: 'VR app for learning and practicing geometry, helping children imagine in 3D space',
+					title: 'Smart Geometry',
+					year: '2024'
 				}
 			]}
 			title="Hobby"
