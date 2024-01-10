@@ -1,4 +1,8 @@
 <script>
+	//THIS PAGE IS CURRENTLY BEING DEVELOPED ON THE release/band-portfolio branch
+	//This boilerplate code is left here to show how the folder structure will be when the page is finished
+
+
 	// import Youtube from 'svelte-youtube-embed'
 	// import { AudioPlayer } from 'svelte-mp3'
 	import Divider from '../../components/Divider.svelte'
