@@ -132,7 +132,9 @@
 		</picture>
 		<div class="flex flex-col items-center -m-1 bg-white md:mt-12 content">
 			<Divider size={32} />
-			<TitleDescription title="About" description="We are a duo from Horsens. We play background music in bars and coffes" descriptionStyles=" text-center" />
+			<TitleDescription title="About" description=" 'There is one language that speaks to everyone: Music'" descriptionStyles=" text-center" />
+			<TitleDescription description="As an international duo from Horsens with a passion for music, we enjoy performing in the cozy atmosphere of bars and cafes."/>
+			<TitleDescription description="Our repertoire mostly consists of jazz/blues/pop cover songs, but we also love to create mashups and more upbeat tunes."/>
 			<Divider size={24} />
 			<a>Listen to our portfolio</a>
 			<Divider size={48} />
