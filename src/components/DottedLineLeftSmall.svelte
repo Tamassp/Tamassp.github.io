@@ -61,7 +61,7 @@
 	}}
 >
 	<svg
-		class=" ml-[20vw] {inverted ? 'invertedSVG' : ' '}"
+		class=" ml-[20%] {inverted ? 'invertedSVG' : ' '}"
 		width="60%"
 		height="h-auto"
 		viewBox="0 0 345 408"

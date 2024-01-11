@@ -248,9 +248,9 @@
 				}}
 				on:exitViewport={() => {}}
 			/>
-			<div class="w-full h-16">
+			<div class="relative w-full h-16">
 				{#if highSchool}
-					<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] transitionFromRight">
+					<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[60%] transitionFromRight">
 						<Title class="inline">high school</Title>
 					</div>
 				{/if}
@@ -304,9 +304,9 @@
 			on:exitViewport={() => {}}
 		/>
 		<div>
-			<div class="w-full h-16">
+			<div class="relative w-full h-16">
 				{#if university}
-					<div class="absolute ml-[5%] sm:ml-[15%] md:ml-[30%] inline transitionFromLeft">
+					<div class="absolute ml-[5%] sm:ml-[15%] md:ml-[30%] lg:ml-[50%] inline transitionFromLeft">
 						<Title class="inline">VIA University College</Title>
 					</div>
 				{/if}
@@ -356,9 +356,9 @@
 			on:exitViewport={() => {}}
 		/>
 		<div>
-			<div class="w-full h-16">
+			<div class="relative w-full h-16">
 				{#if work}
-					<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[50%] inline transitionFromRight">
+					<div class="absolute ml-[15%] sm:ml-[35%] md:ml-[70%] inline transitionFromRight">
 						<Title>Keyhole</Title>
 					</div>
 				{/if}

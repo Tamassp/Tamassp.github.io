@@ -10,7 +10,7 @@
 	height="194"
 	viewBox="0 0 243 194"
 	fill="none"
-	class="ml-[calc(20vw+60%-132px)] sm:ml-[calc(20vw+60%-135px)] -mb-8 sm:mb-8 scale-50 sm:scale-100"
+	class="ml-[calc(20%+60%-132px)] sm:ml-[calc(20%+60%-135px)] -mb-8 sm:mb-8 scale-50 sm:scale-100"
 >
 	<path
 		d="M241.537 97V1H57.5366L1.53659 49L57.5366 97H241.537Z"

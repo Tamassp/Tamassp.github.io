@@ -10,7 +10,7 @@
 	height="194"
 	viewBox="0 0 243 194"
 	fill="none"
-	class="ml-[calc(20vw-110px)] sm:ml-[calc(20vw-100px)] -mb-8 sm:mb-8 scale-50 sm:scale-100"
+	class="ml-[calc(20%-110px)] sm:ml-[calc(20%-100px)] -mb-8 sm:mb-8 scale-50 sm:scale-100"
 >
 	<path
 		d="M1 97V1H185L241 49L185 97H1Z"
