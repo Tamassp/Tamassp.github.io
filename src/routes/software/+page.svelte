@@ -440,6 +440,37 @@
 					demoSrc:  keyholeIntro ,
 					icons: ['react', 'ts', 'js'],
 					year: '2022-2023',
+				},
+				{
+					title: 'Artlinco',
+					subTitle: 'Designed IoT Cloud solutions for different use cases:',
+					bulletPoints: [
+						'Azure IoT Hub',
+						'Communication Protocols',
+						'Azure Functions'
+					],
+					demoOrientation: 'landscape',
+					filterTag: 'frontend',
+					projectColor: '#FFFF00',
+					demoSrc:  noMedia ,
+					icons: ['azure', 'c#'],
+					year: '2024',
+				},
+				{
+					title: 'Safe Sign',
+					subTitle: 'Designing and implementing IoT, Cloud and Dashboard systems for monitoring roadwork sings',
+					bulletPoints: [
+						'Azure IoT Hub',
+						'Azure Functions',
+						'Cosmos Database',
+						'Blob Storage'
+					],
+					demoOrientation: 'landscape',
+					filterTag: 'frontend',
+					projectColor: '#FFA300',
+					demoSrc:  noMedia ,
+					icons: ['azure', 'c#', 'react', 'ts'],
+					year: 'Current',
 				}
 			]}
 			title="Work"
