@@ -30,6 +30,7 @@
 	export let bulletPoints: string[] = []
 	export let demoLink: string = ''
 	export let gitHubLink: string = ''
+	export let linkedInLink: string = ''
 	export let demoOrientation: 'portrait' | 'landscape' | 'square' = 'portrait'
 	export let projectColor = '#666666'
 	export let icons: any[] = []
@@ -112,13 +113,18 @@
 					<YoutubeIcon class="mr-2" />
 					Demo Video
 				</a>
-				{#if gitHubLink}
+				{#if gitHubLink || linkedInLink}
 					<Description class="mx-2 mt-1">/</Description>
 				{/if}
 			{/if}
 			{#if gitHubLink}
 				<a href={gitHubLink} target="_blank"  class="flex flex-row items-center max-w-max text-primary"> 
 					Repo
+				</a>
+			{/if}
+			{#if linkedInLink}
+				<a href={linkedInLink} target="_blank"  class="flex flex-row items-center max-w-max text-primary"> 
+					LinkedIn Profile
 				</a>
 			{/if}
 			</div>

@@ -433,13 +433,15 @@
 					bulletPoints: [
 						'React Native mobile app',
 						'React web app for tenants',
-						'React web app for landlords'
+						'React web app for landlords',
+						'Component based development',
 					],
 					filterTag: 'frontend',
 					projectColor: '#ff8d93',
 					demoSrc:  keyholeIntro ,
 					icons: ['react', 'ts', 'js'],
 					year: '2022-2023',
+					linkedInLink:'https://www.linkedin.com/company/usekeyhole'
 				},
 				{
 					title: 'Artlinco',
@@ -447,7 +449,9 @@
 					bulletPoints: [
 						'Azure IoT Hub',
 						'Communication Protocols',
-						'Azure Functions'
+						'Azure Functions',
+						'Azure Data Explorer',
+						'Big Data'
 					],
 					demoOrientation: 'landscape',
 					filterTag: 'frontend',
@@ -455,14 +459,15 @@
 					demoSrc:  noMedia ,
 					icons: ['azure', 'c#'],
 					year: '2024',
+					linkedInLink:'https://www.linkedin.com/company/artlinco-as'
 				},
 				{
-					title: 'Safe Sign',
+					title: 'Safe Sign (Artlinco)',
 					subTitle: 'Designing and implementing IoT, Cloud and Dashboard systems for monitoring roadwork sings',
 					bulletPoints: [
 						'Azure IoT Hub',
 						'Azure Functions',
-						'Cosmos Database',
+						'Azure SQL Database',
 						'Blob Storage'
 					],
 					demoOrientation: 'landscape',
@@ -471,6 +476,7 @@
 					demoSrc:  noMedia ,
 					icons: ['azure', 'c#', 'react', 'ts'],
 					year: 'Current',
+					linkedInLink:'https://www.linkedin.com/company/scandinavia-safe'
 				}
 			]}
 			title="Work"
