@@ -182,12 +182,11 @@
 					flex flex-col items-center justify-center"
 			>
 				<SubHeader class="text-center"
-					>Software Engineer specialized in React and XR development</SubHeader
+					>Former React and XR developer</SubHeader
 				>
 				<Divider size={24} />
 				<Description class="text-center">
-					As a Front-end and XR focused software engineer, I will be able to design, implement and maintain
-					mobile, web and XR applications using Component Based Development or Entity Component System.
+					Currently working as a Full-stack Engineer, designing and implementing a bi-directional IoT monitoring system for a roadwork safety product.
 				</Description>
 				<div
 					use:viewport
